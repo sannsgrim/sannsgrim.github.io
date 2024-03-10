@@ -1,0 +1,156 @@
+/*=============== Font-Face ===============*/
+@font-face {
+    font-family: 'Poppins';
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(0, 0%, 100%);
+    --gradient: linear-gradient(90deg, hsl(148, 100%, 50%), hsl(144, 100%, 20%));
+    --first-color-alt: hsl(0, 0%, 52%);
+    --black-color: #000000;
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-light: hsl(0, 0%, 52%);
+    --body-color: hsl(22, 8%, 6%);
+    --container-color: hsl(22, 8%, 7%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+
+    --body-font: 'Poppins', sans-serif;
+    --second-font: 'Poppins', cursive;
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--black-color);
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*=============== Home ===============*/
+
+.home-container {
+    width: 1920px;
+    display: flex;
+    overflow: auto;
+    height: 951px;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: flex-end;
+    background-image: url("/Image/Background.png");
+    background-repeat: no-repeat;
+}
+.home-text {
+    top: 417px;
+    left: 1081px;
+    color: rgb(255, 255, 255);
+    width: 505px;
+    height: 203px;
+    position: absolute;
+    font-size: 12rem;
+    font-style: normal;
+    text-align: center;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+}
+.home-image_Eagle {
+    left: 0;
+    width: 1100px;
+    bottom: 0;
+    height: auto;
+    position: absolute;
+    object-fit: cover;
+}
+.home-image1_Logo {
+    top: 76px;
+    right: 118px;
+    width: 265px;
+    height: 265px;
+    position: absolute;
+    object-fit: cover;
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    position: fixed;
+    right: 410px;
+    top: 640px;
+}
+
+.home-button {
+    top: 650px;
+    left: 1166px;
+    color: rgb(255, 255, 255);
+    width: 341px;
+    height: 103px;
+    font-size: 2rem;
+    border-color: #ffffff;
+    border-width: 5px;
+    border-radius: 16px;
+    background-color: transparent;
+
+}
+.home-button1 {
+    left: 1166px;
+    color: rgb(255, 255, 255);
+    width: 341px;
+    bottom: 107px;
+    height: 103px;
+    font-size: 2rem;
+    border-color: #ffffff;
+    border-width: 5px;
+    border-radius: 16px;
+    background-color: transparent;
+}
+
+
