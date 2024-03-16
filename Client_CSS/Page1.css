@@ -47,8 +47,12 @@
     margin: 0;
 }
 
-section {
+section.section_top {
     padding-block: 3rem 1.5rem;
+}
+
+section.section_bottom {
+    padding-block: 0.7rem 1.5rem;
 }
 
 html {
@@ -56,6 +60,7 @@ html {
 }
 
 body {
+    position: fixed;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
@@ -76,15 +81,15 @@ img {
 h1 {
     color: var(--first-color);
     margin-bottom: 1rem;
-    font-weight: lighter;
-    text-align: center;
+    font-weight: bolder;
+    text-align: left;
 }
 
 p {
     margin-bottom: 1.5rem;
     color: var(--first-color);
-    font-size: var(--h3-font-size);
-    text-align: center;
+    font-size: 0.884rem;
+    text-align: justify;
 }
 
 
@@ -97,42 +102,72 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 50px;
     gap: 90px;
 }
 
 .top_inner{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 90px;
-    gap: 190px;
+    justify-content: normal;
+    align-items: normal;
+    padding-left: 40px;
+    gap: 50px;
 }
 
 .home-image1_Logo {
-    width: 225px;
-    height: 225px;
+    width: 235px;
+    height: 235px;
     object-fit: cover;
 }
 
 .Title_info{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    padding-right: 60px;
+    justify-content: left;
+    align-items: normal;
+    width: 100%;
 }
 
 
 
+/*=============== Text Field ===============*/
+.input{
+    width: 100%;
+    height: 60px;
+}
+
+.submit_buttonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.submit_button{
+    width: 50%;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gradient);
+    color: var(--first-color);
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.error{
+    color: darkred;
+}
 
 /*=============== Bottom Part ===============*/
 
 .bottom_inner{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 190px;
+    justify-content: normal;
+    align-items: normal;
+    gap: 5px;
 }
 
 .section_bottom{
@@ -145,19 +180,102 @@ p {
 .InputField{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: normal;
+    align-items: normal;
+    padding-left: 40px;
     width: 60%;
-    padding-right: 360px;
-    padding-bottom: 120px;
+}
+
+
+
+/*=============== Image ===============*/
+.Image_Container{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.bottom-right-Text{
+    font-family: Stick No Bills, sans-serif;
+    font-size: 9.5rem;
+    font-weight: bolder;
+    text-shadow: rgba(0, 0, 0, 0.66) 0 0 10px;
+    -webkit-text-stroke: 1px #7b0909;
+    position: absolute;
+    top: 170px;
+    right: 16px;
+
 }
 
 .home-image1_Vector {
-    width: 735px;
+    width: 445px;
     object-fit: cover;
 }
 
-.error{
-    color: darkred;
 
+
+.side_button{
+    position: absolute;
+    width: 379px;
+    height: 349px;
+    left: 1450px;
+    background: #ffffff;
+    border-radius: 70px;
 }
+
+.button_icon_container1{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    left: 1410px;
+    top: 385px;
+    background: #7c0909;
+    border-radius: 100%;
+    border: white 3px solid;
+}
+
+.button_icon_container2{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    left: 1410px;
+    top: 475px;
+    background: #7c0909;
+    border-radius: 100%;
+    border: white 3px solid;
+}
+
+.button_icon_container3{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    left: 1410px;
+    top: 565px;
+    background: #dea81d;
+    border-radius: 100%;
+    border: white 3px solid;
+}
+
+.iconButton{
+    color: white;
+}
+
+.iconButtonFocus{
+    color: #7c0909;
+}
+
+
+
+
+
+
+
