@@ -214,6 +214,10 @@ p {
 
 
 
+
+
+/*=============== Button ===============*/
+
 .side_button{
     position: absolute;
     width: 379px;
@@ -262,7 +266,7 @@ p {
     top: 565px;
     background: #dea81d;
     border-radius: 100%;
-    border: white 3px solid;
+    border: #7c0909 3px solid;
 }
 
 .iconButton{
@@ -272,6 +276,27 @@ p {
 .iconButtonFocus{
     color: #7c0909;
 }
+
+
+.button_icon_container1:hover{
+    background: #dea81d;
+    border: #7c0909 3px solid;
+    .iconButton{
+        color: #7c0909;
+
+    }
+}
+
+.button_icon_container2:hover{
+    background: #dea81d;
+    border: #7c0909 3px solid;
+    .iconButton{
+        color: #7c0909;
+
+    }
+}
+
+
 
 
 
