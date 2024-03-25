@@ -1,3 +1,5 @@
+
+
 /*=============== Font-Face ===============*/
 @font-face {
     font-family: 'Poppins';
@@ -74,43 +76,40 @@ img {
 /*=============== Home ===============*/
 
 .home-container {
-    width: 1920px;
+    width: 1536px;
     display: flex;
     overflow: auto;
-    height: 951px;
+    height: 739px;
     align-items: center;
     flex-direction: column;
     background-size: cover;
     justify-content: flex-end;
-    background-image: url("/Image/Background.png");
+    background-image: url("/src/Image/Background.png");
     background-repeat: no-repeat;
 }
 .home-text {
-    top: 417px;
-    left: 1081px;
     color: rgb(255, 255, 255);
     width: 505px;
     height: 203px;
-    position: absolute;
     font-size: 12rem;
     font-style: normal;
     text-align: center;
-    font-family: "Poppins", serif;
+    font-family: "Stick No Bills", serif;
     font-weight: 700;
 }
 .home-image_Eagle {
     left: 0;
-    width: 1100px;
+    width: 900px;
     bottom: 0;
     height: auto;
     position: absolute;
     object-fit: cover;
 }
 .home-image1_Logo {
-    top: 76px;
-    right: 118px;
-    width: 265px;
-    height: 265px;
+    top: 36px;
+    right: 68px;
+    width: 225px;
+    height: 225px;
     position: absolute;
     object-fit: cover;
 }
@@ -120,37 +119,63 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 0.5rem;
     position: fixed;
-    right: 410px;
-    top: 640px;
+    right: 170px;
+    top: 280px;
 }
 
 .home-button {
-    top: 650px;
-    left: 1166px;
-    color: rgb(255, 255, 255);
-    width: 341px;
-    height: 103px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 271px;
+    height: 93px;
     font-size: 2rem;
-    border-color: #ffffff;
-    border-width: 5px;
-    border-radius: 16px;
-    background-color: transparent;
-
+    background: none;
+    border: #ffffff 3px solid;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    color: #ffffff;
+    font-weight: var(--font-semi-bold);
+    transition: background .3s, color .3s;
 }
+
 .home-button1 {
-    left: 1166px;
-    color: rgb(255, 255, 255);
-    width: 341px;
-    bottom: 107px;
-    height: 103px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 271px;
+    height: 93px;
     font-size: 2rem;
-    border-color: #ffffff;
-    border-width: 5px;
-    border-radius: 16px;
-    background-color: transparent;
+    border: #ffffff 3px solid;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    color: #ffffff;
+    font-weight: var(--font-semi-bold);
+    transition: background .3s, color .3s;
 }
 
+.home-button:hover {
+    background: #ffffff;
+    color: #7c0909;
+}
+.home-button1:hover {
+    background: #ffffff;
+    color: #7c0909;
+}
+
+
+.admin-btn-container{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    position: fixed;
+    right: 270px;
+    top: 300px;
+}
 

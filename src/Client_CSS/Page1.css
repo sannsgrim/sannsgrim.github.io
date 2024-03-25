@@ -60,7 +60,6 @@ html {
 }
 
 body {
-    position: fixed;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
@@ -129,7 +128,6 @@ p {
 }
 
 
-
 /*=============== Text Field ===============*/
 .input{
     width: 100%;
@@ -166,7 +164,7 @@ p {
 .bottom_inner{
     display: flex;
     justify-content: normal;
-    align-items: normal;
+    align-items: center;
     gap: 5px;
 }
 
@@ -219,23 +217,29 @@ p {
 /*=============== Button ===============*/
 
 .side_button{
-    position: absolute;
-    width: 379px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: 83px;
+    width: 5%;
     height: 349px;
-    left: 1450px;
+    float: right;
     background: #ffffff;
-    border-radius: 70px;
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+    padding-left: 20px;
+    padding-right: 35px;
+    gap: 10px;
 }
 
 .button_icon_container1{
     display: flex;
-    position: absolute;
     align-items: center;
     justify-content: center;
     width: 80px;
     height: 80px;
-    left: 1410px;
-    top: 385px;
+    float: right;
     background: #7c0909;
     border-radius: 100%;
     border: white 3px solid;
@@ -243,13 +247,11 @@ p {
 
 .button_icon_container2{
     display: flex;
-    position: absolute;
     align-items: center;
     justify-content: center;
     width: 80px;
     height: 80px;
-    left: 1410px;
-    top: 475px;
+    float: right;
     background: #7c0909;
     border-radius: 100%;
     border: white 3px solid;
@@ -257,13 +259,11 @@ p {
 
 .button_icon_container3{
     display: flex;
-    position: absolute;
     align-items: center;
     justify-content: center;
     width: 80px;
     height: 80px;
-    left: 1410px;
-    top: 565px;
+    float: right;
     background: #dea81d;
     border-radius: 100%;
     border: #7c0909 3px solid;
@@ -295,6 +295,8 @@ p {
 
     }
 }
+
+
 
 
 
