@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEAS OSAS</title>
+    <link rel="stylesheet" href="events2.css">
+    <script src="style.js" defer></script>
+    <script src="https://kit.fontawesome.com/7fd5112ce3.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+            <p>UEAS</p>
+        </div>
+
+        <div style="margin-right: 0%; cursor: pointer;"><i class="fa-regular fa-bell" style="font-size: 2em;" onclick="Notification()"></i></div>
+        <div class="notifs" onclick="Account()">
+            <img src="Logo.png" alt="Logo">
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+
+        <div class="notif-box" id="box">
+            <div class="osas-name">
+                <i class="fa-solid fa-user"></i><span>Office of Student Affairs and Services</span>
+            </div>
+    
+            <div class="logout">
+                <a href="dashboard.html"><i class="fa-solid fa-right-from-bracket"></i><button>Log-out</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="notifi-box" id="box2">
+        <div class="notif-header">
+            <div class="left-header">
+                <span>Notifications</span>
+            </div>
+
+            <div class="right-header" onclick="markAllAsRead()">
+                <i class="fa-regular fa-circle-check"></i>
+                <p>Mark all as Read</p>
+            </div>
+        </div>
+
+        <div class="bottom-header"  id="bottomHeader">
+            <div class="content">
+                <i class="fa-regular fa-newspaper"></i>
+                <p>The Office of the Student Affairs has 
+                    cancelled  Classwork 04/01/2024</p>
+            </div>
+    
+            <div class="statuss">
+                <p>Just Now</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navs">
+        <ul>
+            <li>
+                <div class="dashboard">
+                <i class="fa-solid fa-gauge"></i>
+                <a href="dashboard.html">Dashboard</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="event">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    <a href="events.html">Events</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="calendar">
+                    <i class="fa-regular fa-calendar"></i>
+                    <a href="apr.html">Calendar</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="reports">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <a href="#">Reports</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="accounts">
+                    <i class="fa-regular fa-user"></i>
+		            <a href="#">Accounts</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="events-body">
+        <div class="osas">
+            <img src="Logo.png" alt="Logo">
+            <div>
+                <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Office of Student Affairs and Services</p>
+                <p style="font-style: italic;">usep.tagum.osas@usep.edu.ph</p>
+            </div>
+        </div>
+
+        <div class="osas-body">
+            <div class="outer-rectangle">
+                <p>Create Event</p>
+                <form action="#">
+                    <div class="inner-rectangle">
+                        <div class="left-inner">
+                            <div class="name1">
+                                <label for="Name"> Name of Event:</label>
+                                <input type="text" name="event" placeholder="BSIT Technofest 2024">
+                            </div>
+                            
+                            <div class="name2">
+                                <label for="date"> Date:</label>
+                                <input type="text" name="date" placeholder="03/22/2024" readonly>
+                            </div>
+    
+                            <div class="name3">
+                                <label for="Venue"> Venue:</label>
+                                <input type="text" name="venue" placeholder="PECC Gymnasium">
+                            </div>
+    
+                            <div class="name4">
+                                <label for="time"> Time:</label>
+                                <input type="text" name="from" placeholder="8:00 AM" style="margin-left: 27%;">
+                                <input type="text" name="to" placeholder="5:00 PM">
+                            </div>
+    
+                            <div  class="name5">
+                                <label for="incharge"> In-charge:</label>
+                                <input type="text" name="incharge" placeholder="SITS">
+                            </div>
+                        </div>
+    
+                        <div class="right-inner">
+                            <p>Apply Sanction?</p>
+    
+                            <div class="choices">
+                                <input type="radio" name="options" required>
+                                <label for="option1" style="margin-right: 10%;" >Yes</label>
+                                
+                                <input type="radio" name="options" required>
+                                <label for="option2">No</label>
+                            </div>
+    
+                            <div class="choices2">
+                                <button type="submit">Edit Event</button>
+                                <button type="reset"><a href="events.html">Cancel</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

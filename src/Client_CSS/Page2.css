@@ -146,7 +146,6 @@ p {
     height: 60px;
     justify-content: center;
     align-items: center;
-    background-color: var(--gradient);
     color: var(--first-color);
     font-size: 1.5rem;
     font-weight: var(--font-bold);

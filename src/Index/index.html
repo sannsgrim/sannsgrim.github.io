@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UEAS Login - Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="/src/output.css" />
+    <script defer src="../../node_modules/alpinejs/dist/cdn.min.js"></script>
+</head>
+<body>
+<div>
+    <div class="home-container">
+        <img src="/src/Image/Asset_1.png" alt="image" id="Eagle" class="home-image_Eagle" />
+        <img src="/src/Image/Logo.png" alt="image" id="Logo" class="home-image1_Logo" />
+        <div class="btn-container">
+            <h1 id="Title" class="home-text">UEAS</h1>
+            <a href="#" class="home-button button" id="admin-btn">ADMIN</a>
+            <a href="../Client_HTML/Page1.html" class="home-button1 button" >STUDENT</a>
+        </div>
+
+
+        <div class="admin-btn-container">
+            <a href="#" class="home-button button">OSAS</a>
+            <a href="#" class="home-button button" >TSC</a>
+
+
+            <div x-data="{ modalOpen:false}"
+                 @keydown.escape.window="modalOpen = false;"
+                 :class="{ 'z-40': modalOpen}" class="submit_buttonDiv">
+                <button type="button" @click="modalOpen = true" class="home-button">ORGANIZATION</button>
+                <template x-teleport="body">
+
+
+                    <div x-show="modalOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+                        <div x-show="modalOpen"
+                             x-transition:enter="ease-out duration-300"
+                             x-transition:enter-start="opacity-0"
+                             x-transition:enter-end="opacity-100"
+                             x-transition:leave="ease-in duration-300"
+                             x-transition:leave-start="opacity-100"
+                             x-transition:leave-end="opacity-0"
+                             @click="modalOpen=false" class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
+                        <div x-show="modalOpen"
+                             x-trap.inert.noscroll="modalOpen"
+                             x-transition:enter="ease-out duration-300"
+                             x-transition:enter-start="opacity-0 -translate-y-2 sm:scale-95"
+                             x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                             x-transition:leave="ease-in duration-200"
+                             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                             x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
+                             class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all
+                                            sm:my-8 sm:w-full sm:max-w-md sm:p-6">
+
+                            <!--Modal-->
+                            <div class="flex flex-col items-center justify-between pt-1">
+                                <h2 class="text-2xl font-semibold leading-6 text-red-700" id="modal-top-title">Choose Organization</h2>
+
+                            </div>
+                            <div class="mt-5 sm:mt-6 flex flex-col items-center gap-1 justify-center" id="modal-buttonContainer">
+                                <button @click="modalOpen=false"
+                                        class="flex w-56 h-10 justify-center items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" id="Sits"
+                                        type="button">SITS
+                                </button>
+                                <button @click="modalOpen=false"
+                                        class="flex w-56 h-10 justify-center items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" id="Sabes"
+                                        type="button">SABES
+                                </button>
+                                <button @click="modalOpen=false"
+                                        class="flex w-56 h-10 justify-center items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" id="Afset"
+                                        type="button">AFSET
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+
+
+
+            <a href="#" class="home-button button" id="back-btn">BACK</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!--JS-->
+<script>
+    document.getElementById('admin-btn').addEventListener('click', function() {
+        document.querySelector('.btn-container').style.display = 'none';
+        document.querySelector('.admin-btn-container').style.display = 'flex';
+    });
+
+    document.getElementById('back-btn').addEventListener('click', function() {
+        document.querySelector('.admin-btn-container').style.display = 'none';
+        document.querySelector('.btn-container').style.display = 'flex';
+    });
+</script>
+
+</body>
+</html>
