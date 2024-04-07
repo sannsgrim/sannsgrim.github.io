@@ -1,0 +1,306 @@
+/*=============== Font-Face ===============*/
+@font-face {
+    font-family: 'Poppins';
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(0, 0%, 100%);
+    --gradient: linear-gradient(90deg, hsl(148, 100%, 50%), hsl(144, 100%, 20%));
+    --first-color-alt: hsl(0, 0%, 52%);
+    --black-color: #000000;
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-light: hsl(0, 0%, 52%);
+    --body-color: hsl(0, 87%, 26%);
+    --container-color: hsl(22, 8%, 7%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+
+    --body-font: 'Poppins', sans-serif;
+    --second-font: 'Poppins', cursive;
+    --biggest-font-size: 3rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+section.section_top {
+    padding-block: 3rem 1.5rem;
+}
+
+section.section_bottom {
+    margin-left: 80px;
+    padding-block: 0.7rem 1.5rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--black-color);
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+h1 {
+    color: var(--first-color);
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    text-align: left;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--first-color);
+    font-size: 0.884rem;
+    text-align: justify;
+}
+
+/*=============== Top Part ===============*/
+
+.section_top{
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: normal;
+    padding-right: 50px;
+    gap: 90px;
+}
+
+.top_inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 40px;
+    gap: 50px;
+}
+
+.home-image1_Logo {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+}
+
+.Title_info{
+    font-family: "Stick No Bills", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: normal;
+    width: 100%;
+}
+
+
+/*=============== Text Field ===============*/
+.input{
+    width: 100%;
+    height: 60px;
+}
+
+.login_buttonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.login_button{
+    width: 40%;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    color: var(--first-color);
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.error{
+    color: darkred;
+}
+
+/*=============== Bottom Part ===============*/
+
+.bottom_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+@media (min-width: 1024px){
+    .bottom_inner{
+        display: flex;
+        justify-content: normal;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+.section_bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    align-items: normal;
+}
+
+.InputField{
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: normal;
+    padding-left: 40px;
+    width: 40%;
+
+}
+
+
+
+/*=============== Image ===============*/
+.Image_Container{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.bottom-right-Text{
+    font-family: Stick No Bills, sans-serif;
+    font-size: 9.5rem;
+    font-weight: bolder;
+    text-shadow: rgba(0, 0, 0, 0.66) 0 0 10px;
+    -webkit-text-stroke: 1px #7b0909;
+    position: absolute;
+    top: 170px;
+    right: 16px;
+
+}
+
+.home-image1_Vector {
+    width: 497px;
+    object-fit: cover;
+}
+
+
+
+
+
+/*=============== Button ===============*/
+
+.side_button{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: 293px;
+    width: 5%;
+    height: 349px;
+    float: right;
+    background: #ffffff;
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+    padding-left: 20px;
+    padding-right: 35px;
+    gap: 10px;
+}
+
+.button_icon_container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    float: right;
+    background: #7c0909;
+    border-radius: 100%;
+    border: white 3px solid;
+}
+
+.button_icon_container2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    float: right;
+    background: #dea81d;
+    border-radius: 100%;
+    border: #7c0909 3px solid;
+}
+
+.button_icon_container3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    float: right;
+    background: #7c0909;
+    border-radius: 100%;
+    border: white 3px solid;
+}
+
+.iconButton{
+    color: white;
+}
+
+.iconButtonFocus{
+    color: #7c0909;
+}
+
+
+.button_icon_container1:hover{
+    background: #dea81d;
+    border: #7c0909 3px solid;
+    .iconButton{
+        color: #7c0909;
+
+    }
+}
+
+.button_icon_container3:hover{
+    background: #dea81d;
+    border: #7c0909 3px solid;
+    .iconButton{
+        color: #7c0909;
+
+    }
+}

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page - OSAS: Event</title>
+    <link rel="stylesheet" href="../Admin_CSS_OSAS/Page1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased overscroll-y-none">
+<div x-data="{ showMobile: false }">
+
+    <div x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+
+        <div x-show="showMobile"
+             x-transition:enter="transition-opacity ease-linear duration-300"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition-opacity ease-linear duration-300"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="fixed inset-0 bg-gray-900/80"></div>
+
+        <div class="fixed inset-0 flex">
+
+            <div x-show="showMobile"
+                 @click.away="showMobile = !showMobile"
+                 x-transition:enter="transition ease-in-out duration-300 transform"
+                 x-transition:enter-start="-translate-x-full"
+                 x-transition:enter-end="translate-x-0"
+                 x-transition:leave="transition ease-in-out duration-300 transform"
+                 x-transition:leave-start="translate-x-0"
+                 x-transition:leave-end="-translate-x-full"
+
+                 class="relative mr-16 flex w-full max-w-xs flex-1">
+
+                <div x-show="showMobile"
+                     x-transition:enter="ease-in-out duration-300"
+                     x-transition:enter-start="opacity-0"
+                     x-transition:enter-end="opacity-100"
+                     x-transition:leave="ease-in-out duration-300"
+                     x-transition:leave-start="opacity-100"
+                     x-transition:leave-end="opacity-0"
+
+                     class="absolute left-full top-0 flex w-16 justify-center pt-5">
+
+                    <button @click="showMobile = !showMobile" type="button" class="-m-2.5 p-2.5">
+                        <span class="sr-only">Close sidebar</span>
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg px-6 py-4">
+                    <div class="flex h-20 shrink-0 gap-x-3 items-center">
+                        <img class="w-auto h-[75px]" src="../Image/Logo.png" alt="Your Company">
+                        <h2 class="LogoText">UEAS</h2>
+                    </div>
+                    <hr/>
+                    <nav class="flex flex-1 flex-col">
+                        <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                            <li>
+                                <ul role="list" class="-mx-2 space-y-1">
+                                    <li>
+                                        <a href="../Admin_HTML_OSAS/Page1.1.html"
+                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                 aria-hidden="true">
+                                                <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm320 96c0-26.9-16.5-49.9-40-59.3V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V292.7c-23.5 9.5-40 32.5-40 59.3c0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+                                            </svg>
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Admin_HTML_OSAS/Page1.2.0.html"
+                                           class="text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                 aria-hidden="true">
+                                                <path d="M128 0C110.3 0 96 14.3 96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32zM256 368c0-91.8 70.3-167.2 160-175.3V192H0V464c0 26.5 21.5 48 48 48H330.8C285.6 480.1 256 427.5 256 368zM432 512a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm16-208v48h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V384H368c-8.8 0-16-7.2-16-16s7.2-16 16-16h48V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/>
+                                            </svg>
+                                            Event
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Admin_HTML_OSAS/Page1.3.html"
+                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                 aria-hidden="true">
+                                                <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/>
+                                            </svg>
+                                            Calendar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
+                                                 aria-hidden="true">
+                                                <path d="M24.707,8.793l-6.5-6.5C18.019,2.105,17.765,2,17.5,2H7C5.895,2,5,2.895,5,4v22c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2 V9.5C25,9.235,24.895,8.981,24.707,8.793z M21.707,16.707l-4,4C17.512,20.902,17.256,21,17,21s-0.512-0.098-0.707-0.293L13,17.414 l-3.293,3.293c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l4-4c0.391-0.391,1.023-0.391,1.414,0L17,18.586l3.293-3.293 c0.391-0.391,1.023-0.391,1.414,0S22.098,16.316,21.707,16.707z M18,10c-0.552,0-1-0.448-1-1V3.904L23.096,10H18z"/>
+                                            </svg>
+                                            Report
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                 aria-hidden="true">
+                                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                            </svg>
+                                            Account
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Static sidebar for desktop -->
+    <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col overscroll-y-none">
+        <!-- Sidebar component, swap this element with another sidebar if you like -->
+        <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg py-4">
+            <div class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
+                <img class="w-auto h-[97px] " src="../Image/Logo.png" alt="Your Company">
+                <h2 class="LogoText">UEAS</h2>
+            </div>
+            <nav class="flex flex-1 flex-col pad">
+                <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                    <li>
+                        <ul role="list" class="flex flex-col items-start">
+                            <li class="w-full">
+                                <a href="../Admin_HTML_OSAS/Page1.1.html"
+                                   class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
+                                    <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+                                        <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm320 96c0-26.9-16.5-49.9-40-59.3V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V292.7c-23.5 9.5-40 32.5-40 59.3c0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li class="w-full">
+                                <a href="../Admin_HTML_OSAS/Page1.2.0.html"
+                                   class="text-black group flex items-center gap-x-3 p-4 text-sm leading-6 font-semibold w-full bgSide pl-10">
+                                    <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true">
+                                        <path d="M128 0C110.3 0 96 14.3 96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32zM256 368c0-91.8 70.3-167.2 160-175.3V192H0V464c0 26.5 21.5 48 48 48H330.8C285.6 480.1 256 427.5 256 368zM432 512a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm16-208v48h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V384H368c-8.8 0-16-7.2-16-16s7.2-16 16-16h48V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/>
+                                    </svg>
+                                    Event
+                                </a>
+                            </li>
+                            <li class="w-full">
+                                <a href="../Admin_HTML_OSAS/Page1.3.html"
+                                   class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
+                                    <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                                        <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/>
+                                    </svg>
+                                    Calendar
+                                </a>
+                            </li>
+                            <li class="w-full">
+                                <a href="#"
+                                   class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
+                                    <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true">
+                                        <path d="M24.707,8.793l-6.5-6.5C18.019,2.105,17.765,2,17.5,2H7C5.895,2,5,2.895,5,4v22c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2 V9.5C25,9.235,24.895,8.981,24.707,8.793z M21.707,16.707l-4,4C17.512,20.902,17.256,21,17,21s-0.512-0.098-0.707-0.293L13,17.414 l-3.293,3.293c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l4-4c0.391-0.391,1.023-0.391,1.414,0L17,18.586l3.293-3.293 c0.391-0.391,1.023-0.391,1.414,0S22.098,16.316,21.707,16.707z M18,10c-0.552,0-1-0.448-1-1V3.904L23.096,10H18z"/>
+                                    </svg>
+                                    Report
+                                </a>
+                            </li>
+                            <li class="w-full">
+                                <a href="#"
+                                   class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
+                                    <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                    </svg>
+                                    Account
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="lg:pl-72 overscroll-y-none">
+        <div class="sideBarBg overscroll-y-none sticky top-0 z-40 flex h-[117px] shrink-0 items-center justify-center gap-x-4 px-4 py-9 sm:gap-x-6 sm:px-6 lg:px-8">
+            <button @click="showMobile = !showMobile" type="button" class="-m-2.5 p-2.5 text-white lg:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                     aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                </svg>
+            </button>
+
+            <!-- Separator -->
+            <div class="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true"></div>
+
+            <div class="flex w-full justify-end gap-x-4 self-stretch lg:gap-x-6 pr-10">
+                <div class="flex items-center gap-x-12 lg:gap-x-12">
+                    <div x-data="{ notification : false }" class="relative inline-block text-left">
+                        <div>
+                            <button type="button" @click="notification = !notification"
+                                    class="flex items-center rounded-full text-gray-400 hover:text-gray-600"
+                                    id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <span class="sr-only">Open options</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512 " fill="currentColor"
+                                     class="w-6 text-white hover:text-[#DFA91D] flex items-center justify-center gap-x-3">
+                                    <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112v25.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V208c0-61.9 50.1-112 112-112zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div x-show="notification"
+                             @click.away="notification = false"
+                             x-transition:enter="transition ease-out duration-100"
+                             x-transition:enter-start="transform opacity-0 scale-95"
+                             x-transition:enter-end="transform opacity-100 scale-100"
+                             x-transition:leave="transition ease-in duration-75"
+                             x-transition:leave-start="transform opacity-100 scale-100"
+                             x-transition:leave-end="transform opacity-0 scale-95"
+                             class="absolute right-0 z-10 mt-2 w-[410px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+
+                            <div class="shadow-lg bg-gray-100 z-[100] max-h-[500px]  min-w-full rounded-lg overflow-auto"
+                                 role="none">
+                                <div class="flex items-start justify-between px-4 bg-white py-4 sticky top-0">
+                                    <p class="text-xs text-[#7D0909] cursor-pointer">Clear all</p>
+                                    <p class="text-xs text-[#7D0909] cursor-pointer">Mark as read</p>
+                                </div>
+                                <ul class="divide-y">
+                                    <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
+                                        <img src="https://readymadeui.com/profile_2.webp"
+                                             class="w-12 h-12 rounded-full shrink-0"/>
+                                        <div class="ml-6">
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">Your have a new message
+                                                from Yin</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, check this new items in
+                                                from the your may interested from
+                                                the motion school</p>
+                                            <p class="text-xs text-[#7D0909] leading-3 mt-2">10 minutes ago</p>
+                                        </div>
+                                    </li>
+                                    <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
+                                        <img src="https://readymadeui.com/profile_3.webp"
+                                             class="w-12 h-12 rounded-full shrink-0"/>
+                                        <div class="ml-6">
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">Your have a new message
+                                                from Haper</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, check this new items in
+                                                from the your may interested from
+                                                the motion school</p>
+                                            <p class="text-xs text-[#7D0909] leading-3 mt-2">2 hours ago</p>
+                                        </div>
+                                    </li>
+                                    <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
+                                        <img src="https://readymadeui.com/profile_4.webp"
+                                             class="w-12 h-12 rounded-full shrink-0"/>
+                                        <div class="ml-6">
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">Your have a new message
+                                                from San</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, check this new items in
+                                                from the your may interested from
+                                                the motion school</p>
+                                            <p class="text-xs text-[#7D0909] leading-3 mt-2">1 day ago</p>
+                                        </div>
+                                    </li>
+                                    <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
+                                        <img src="https://readymadeui.com/profile_5.webp"
+                                             class="w-12 h-12 rounded-full shrink-0"/>
+                                        <div class="ml-6">
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">Your have a new message
+                                                from Seeba</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, check this new items in
+                                                from the your may interested from
+                                                the motion school</p>
+                                            <p class="text-xs text-[#7D0909] leading-3 mt-2">30 minutes ago</p>
+                                        </div>
+                                    </li>
+
+                                    <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
+                                        <img src="https://readymadeui.com/profile_5.webp"
+                                             class="w-12 h-12 rounded-full shrink-0"/>
+                                        <div class="ml-6">
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">Your have a new message
+                                                from Seeba</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, check this new items in
+                                                from the your may interested from
+                                                the motion school</p>
+                                            <p class="text-xs text-[#7D0909] leading-3 mt-2">30 minutes ago</p>
+                                        </div>
+                                    </li>
+
+
+                                    <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
+                                        <img src="https://readymadeui.com/profile_5.webp"
+                                             class="w-12 h-12 rounded-full shrink-0"/>
+                                        <div class="ml-6">
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">Your have a new message
+                                                from Seeba</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, check this new items in
+                                                from the your may interested from
+                                                the motion school</p>
+                                            <p class="text-xs text-[#7D0909] leading-3 mt-2">30 minutes ago</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <p class="text-sm px-4 mt-6 mb-4 inline-block text-[#7D0909] cursor-pointer">View all
+                                    Notifications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <div x-data="{ menu : false }" class="relative inline-block text-left">
+                        <div>
+                            <button type="button" @click="menu = !menu"
+                                    class="inline-flex rounded-md w-full justify-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm"
+                                    id="drop-button" aria-expanded="true" aria-haspopup="true">
+                                <img class="w-16 h-16 rounded-full text-white group" src="../Image/Logo.png"
+                                     alt="USeP Logo">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor"
+                                     class="w-4 text-white hover:text-[#DFA91D] flex items-center justify-center gap-x-3">
+                                    <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div x-show="menu"
+                             @click.away="menu = false"
+                             x-transition:enter="transition ease-out duration-100"
+                             x-transition:enter-start="transform opacity-0 scale-95"
+                             x-transition:enter-end="transform opacity-100 scale-100"
+                             x-transition:leave="transition ease-in duration-75"
+                             x-transition:leave-start="transform opacity-100 scale-100"
+                             x-transition:leave-end="transform opacity-0 scale-95"
+                             class="absolute right-0 z-10 mt-2 w-[21rem] origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div class="py-1" role="none">
+                                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                <a href="#" class="text-gray-700 group flex items-center px-4 py-2 text-sm"
+                                   role="menuitem" tabindex="-1" id="menu-item-0">
+                                    <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"
+                                         aria-hidden="true">
+                                        <path d="M320 128a96 96 0 1 0 -192 0 96 96 0 1 0 192 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM32 480H416c-1.2-79.7-66.2-144-146.3-144H178.3c-80 0-145 64.3-146.3 144zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
+                                    </svg>
+                                    Office of Student Affairs and Services
+                                </a>
+                                <a href="#" class="text-gray-700 group flex items-center px-4 py-2 text-sm"
+                                   role="menuitem" tabindex="-1" id="menu-item-1">
+                                    <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                         aria-hidden="true">
+                                        <path d="M505 273c9.4-9.4 9.4-24.6 0-33.9L377 111c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l87 87L184 232c-13.3 0-24 10.7-24 24s10.7 24 24 24l246.1 0-87 87c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0L505 273zM168 80c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 32C39.4 32 0 71.4 0 120L0 392c0 48.6 39.4 88 88 88l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l80 0z"/>
+                                    </svg>
+                                    Log-out
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <main class="py-3 overscroll-y-none" x-data="myApp" x-init="[initDate(), getNoOfDays()]" x-cloak>
+            <div class="px-4 sm:px-6 lg:px-8 flex flex-col gap-2">
+                <div class="flex flex-row items-center justify-normal gap-2 w-full bg-white p-5 shadow-lg">
+                    <img src="../Image/Logo.png" alt="Logo" class="w-[98px] h-[98px]">
+                    <div>
+                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Office of Student Affairs
+                            and Services</p>
+                        <p style="font-style: italic;">usep.tagum.osas@usep.edu.ph</p>
+                    </div>
+                </div>
+
+                <div class="bg-white">
+                    <div class="flex flex-col lg:flex-row sm:flex-col items-center justify-between pMake w-full h-auto z-10 bg-white pl-8 lg:pr-20 pr-8">
+                        <div class="flex flex-col gap-2">
+                            <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Events Overview</p>
+                        </div>
+                        <div class="flex flex-col lg:flex-row sm:flex-row gap-2">
+                            <div x-data="{
+                selectOpen: false,
+                selectedItem: '',
+                selectableItems: [
+                {
+                title: 'SITS',
+                value: 'sits',
+                disabled: false
+                },
+                {
+                title: 'SABES',
+                value: 'sabes',
+                disabled: false
+                },
+                {
+                title: 'AFSET',
+                value: 'afset',
+                disabled: false
+                },
+                {
+                title: 'TSC',
+                value: 'tsc',
+                disabled: false
+                },
+                {
+                title: 'OSAS',
+                value: 'osas',
+                disabled: false
+                },
+                {
+                title: 'All Org',
+                value: 'all',
+                disabled: false
+                }
+                ],
+                selectableItemActive: null,
+                selectId: $id('select'),
+                selectKeydownValue: '',
+                selectKeydownTimeout: 1000,
+                selectKeydownClearTimeout: null,
+                selectDropdownPosition: 'bottom',
+                selectableItemIsActive(item) {
+                return this.selectableItemActive && this.selectableItemActive.value===item.value;
+                },
+                selectableItemActiveNext(){
+                let index = this.selectableItems.indexOf(this.selectableItemActive);
+                if(index < this.selectableItems.length-1){
+                this.selectableItemActive = this.selectableItems[index+1];
+                this.selectScrollToActiveItem();
+                }
+                },
+                selectableItemActivePrevious(){
+                let index = this.selectableItems.indexOf(this.selectableItemActive);
+                if(index > 0){
+                this.selectableItemActive = this.selectableItems[index-1];
+                this.selectScrollToActiveItem();
+                }
+                },
+                selectScrollToActiveItem(){
+                var activeElement;var newScrollPos;if(this.selectableItemActive){
+                activeElement = document.getElementById(this.selectableItemActive.value + '-' + this.selectId)
+                newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.selectableItemsList.offsetHeight;
+                if(newScrollPos > 0){
+                this.$refs.selectableItemsList.scrollTop=newScrollPos;
+                    } else {
+                    this.$refs.selectableItemsList.scrollTop=0;
+                    }
+                    }
+                    },
+                    selectKeydown(event){
+                    var selectedItemBestMatch;if (event.keyCode >= 65 && event.keyCode <= 90) {
+
+                        this.selectKeydownValue += event.key;
+                        selectedItemBestMatch = this.selectItemsFindBestMatch();
+                        if(selectedItemBestMatch){
+                        if(this.selectOpen){
+                        this.selectableItemActive = selectedItemBestMatch;
+                        this.selectScrollToActiveItem();
+                        } else {
+                        this.selectedItem = this.selectableItemActive = selectedItemBestMatch;
+                        }
+                        }
+
+                        if(this.selectKeydownValue !== ''){
+                        clearTimeout(this.selectKeydownClearTimeout);
+                        this.selectKeydownClearTimeout = setTimeout(() => {this.selectKeydownValue = '';
+                        }, this.selectKeydownTimeout);
+                        }
+                        }
+                        },
+
+      selectItemsFindBestMatch(){
+      var typedValue = this.selectKeydownValue.toLowerCase();
+      var bestMatch = null;
+      var bestMatchIndex = -1;
+      for (var i = 0; i < this.selectableItems.length; i++) {
+          var title = this.selectableItems[i].title.toLowerCase();
+          var index = title.indexOf(typedValue);
+          if (index > -1 && (bestMatchIndex === -1 || index < bestMatchIndex) && !this.selectableItems[i].disabled) {
+              bestMatch = this.selectableItems[i];
+              bestMatchIndex = index;
+          }
+      }
+      return bestMatch;
+      },
+       selectPositionUpdate(){
+       var selectDropdownBottomPos = this.$refs.selectButton.getBoundingClientRect().top + this.$refs.selectButton.offsetHeight + parseInt(window.getComputedStyle(this.$refs.selectableItemsList).maxHeight);
+       if(window.innerHeight < selectDropdownBottomPos){
+           this.selectDropdownPosition = 'top';
+       } else {
+           this.selectDropdownPosition = 'bottom';
+       }
+       }
+}"
+                                 x-init="
+                                 $watch('selectOpen',
+                                 function(){if(!selectedItem){
+                                 selectableItemActive=selectableItems[0];
+                                 } else {
+                                 selectableItemActive=selectedItem;
+                                 }
+                                 setTimeout(function(){
+                                 selectScrollToActiveItem();
+                                 }, 10);
+                                 selectPositionUpdate();
+                                 window.addEventListener('resize', (event) => { selectPositionUpdate(); });
+                                 });"
+                                 @keydown.escape="if(selectOpen){ selectOpen=false; }"
+                                 @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.up="if(selectOpen){ selectableItemActivePrevious(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.enter="selectedItem=selectableItemActive; selectOpen=false;"
+                                 @keydown="selectKeydown($event);"
+                                 class="relative w-64">
+
+                                <button x-ref="selectButton" @click="selectOpen=!selectOpen"
+                                        :class="{ 'focus:ring-[#7D0909]' : !selectOpen }"
+                                        class="relative min-h-[38px] flex items-center justify-normal gap-2 w-full text-[#7D0909] py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-[#7D0909] focus:outline-none text-sm">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                         class="w-6 h-6 text">
+                                        <path d="M0 71.5C0 49.7 17.7 32 39.5 32H472.5C494.3 32 512 49.7 512 71.5c0 9.2-3.2 18.1-9.1 25.2L320 317.8V446.1c0 18.7-15.2 33.9-33.9 33.9c-7.5 0-14.8-2.5-20.8-7.1l-61-47.4c-7.8-6.1-12.4-15.4-12.4-25.3V317.8L9.1 96.7C3.2 89.6 0 80.7 0 71.5zM39.5 64c-4.2 0-7.5 3.4-7.5 7.5c0 1.8 .6 3.4 1.7 4.8L220.3 301.8c2.4 2.9 3.7 6.5 3.7 10.2v88.2l61 47.4c.3 .3 .7 .4 1.1 .4c1 0 1.9-.8 1.9-1.9V312c0-3.7 1.3-7.3 3.7-10.2L478.3 76.3c1.1-1.3 1.7-3 1.7-4.8c0-4.2-3.4-7.5-7.5-7.5H39.5z"/>
+                                    </svg>
+                                    <span x-text="selectedItem ? selectedItem.title : 'Sort By'" class="truncate">Sort By</span>
+                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"
+                                             aria-hidden="true" class="w-5 h-5 text-[#7D0909]">
+                                            <path d="M 44.982422 12.970703 A 2.0002 2.0002 0 0 0 43.585938 13.585938 L 25 32.171875 L 6.4140625 13.585938 A 2.0002 2.0002 0 0 0 4.9785156 12.980469 A 2.0002 2.0002 0 0 0 3.5859375 16.414062 L 23.585938 36.414062 A 2.0002 2.0002 0 0 0 26.414062 36.414062 L 46.414062 16.414062 A 2.0002 2.0002 0 0 0 44.982422 12.970703 z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+
+                                <ul x-show="selectOpen"
+                                    x-ref="selectableItemsList"
+                                    @click.away="selectOpen = false"
+                                    x-transition:enter="transition ease-out duration-50"
+                                    x-transition:enter-start="opacity-0 -translate-y-1"
+                                    x-transition:enter-end="opacity-100"
+                                    :class="{ 'bottom-0 mb-10' : selectDropdownPosition === 'top', 'top-0 mt-10' : selectDropdownPosition === 'bottom' }"
+                                    class="absolute w-full mt-1 overflow-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-[#7D0909] focus:outline-none"
+                                    x-cloak>
+
+                                    <template x-for="item in selectableItems" :key="item.value">
+                                        <li @click="selectedItem=item; selectedEventItem=item.title; selectOpen=false; $refs.selectButton.focus();"
+                                            :id="item.value + '-' + selectId"
+                                            :data-disabled="item.disabled"
+                                            :class="{ 'bg-[#7D0909] text-white' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
+                                            @mousemove="selectableItemActive=item"
+                                            class="relative flex items-center h-full py-2 pl-8 text-[#7D0909] cursor-default select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
+                                            <span class="block font-medium truncate" x-text="item.title"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+
+
+                            <div x-data="{
+               selectOpen: false,
+               selectedItem: '',
+               selectableItems: [{title: 'Upcoming Events',
+               value: 'UE',
+               disabled: false
+               },
+               {title: 'Cancelled Events',
+               value: 'CE',
+               disabled: false
+               },
+               {title: 'ALL',
+               value: 'all',
+               disabled: false
+               }
+               ],
+               selectableItemActive: null,
+               selectId: $id('select'),
+               selectKeydownValue: '',
+               selectKeydownTimeout: 1000,
+               selectKeydownClearTimeout: null,
+               selectDropdownPosition: 'bottom',
+               selectableItemIsActive(item) {return this.selectableItemActive && this.selectableItemActive.value===item.value;},
+               selectableItemActiveNext(){let index = this.selectableItems.indexOf(this.selectableItemActive);if(index < this.selectableItems.length-1){this.selectableItemActive = this.selectableItems[index+1];this.selectScrollToActiveItem();
+               }
+               },
+               selectableItemActivePrevious(){let index = this.selectableItems.indexOf(this.selectableItemActive);if(index > 0){this.selectableItemActive = this.selectableItems[index-1];this.selectScrollToActiveItem();
+               }
+               },
+               selectScrollToActiveItem(){var activeElement;var newScrollPos;if(this.selectableItemActive){activeElement = document.getElementById(this.selectableItemActive.value + '-' + this.selectId)
+               newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.selectableItemsList.offsetHeight;if(newScrollPos > 0){this.$refs.selectableItemsList.scrollTop=newScrollPos;
+                    } else {
+                    this.$refs.selectableItemsList.scrollTop=0;
+                    }
+                    }
+                    },
+                    selectKeydown(event){
+                    var selectedItemBestMatch;if (event.keyCode >= 65 && event.keyCode <= 90) {
+
+                        this.selectKeydownValue += event.key;
+                        selectedItemBestMatch = this.selectItemsFindBestMatch();
+                        if(selectedItemBestMatch){
+                        if(this.selectOpen){
+                        this.selectableItemActive = selectedItemBestMatch;
+                        this.selectScrollToActiveItem();
+                        } else {
+                        this.selectedItem = this.selectableItemActive = selectedItemBestMatch;
+                        }
+                        }
+
+                        if(this.selectKeydownValue !== ''){
+                        clearTimeout(this.selectKeydownClearTimeout);
+                        this.selectKeydownClearTimeout = setTimeout(() => {this.selectKeydownValue = '';
+                        }, this.selectKeydownTimeout);
+                        }
+                        }
+                        },
+
+      selectItemsFindBestMatch(){
+      var typedValue = this.selectKeydownValue.toLowerCase();
+      var bestMatch = null;
+      var bestMatchIndex = -1;
+      for (var i = 0; i < this.selectableItems.length; i++) {
+          var title = this.selectableItems[i].title.toLowerCase();
+          var index = title.indexOf(typedValue);
+          if (index > -1 && (bestMatchIndex === -1 || index < bestMatchIndex) && !this.selectableItems[i].disabled) {
+              bestMatch = this.selectableItems[i];
+              bestMatchIndex = index;
+          }
+      }
+      return bestMatch;
+      },
+       selectPositionUpdate(){
+       var selectDropdownBottomPos = this.$refs.selectButton.getBoundingClientRect().top + this.$refs.selectButton.offsetHeight + parseInt(window.getComputedStyle(this.$refs.selectableItemsList).maxHeight);
+       if(window.innerHeight < selectDropdownBottomPos){
+           this.selectDropdownPosition = 'top';
+       } else {
+           this.selectDropdownPosition = 'bottom';
+       }
+       }
+}"
+                                 x-init="
+                     $watch('selectOpen',
+                     function(){if(!selectedItem){
+                     selectableItemActive=selectableItems[0];
+                     } else {
+                     selectableItemActive=selectedItem;
+                     }
+                     setTimeout(function(){
+                     selectScrollToActiveItem();
+                     }, 10);
+                     selectPositionUpdate();
+                     window.addEventListener('resize', (event) => { selectPositionUpdate(); });
+                     });"
+                                 @keydown.escape="if(selectOpen){ selectOpen=false; }"
+                                 @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.up="if(selectOpen){ selectableItemActivePrevious(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.enter="selectedItem=selectableItemActive; selectOpen=false;"
+                                 @keydown="selectKeydown($event);"
+                                 class="relative w-64">
+
+                                <button x-ref="selectButton" @click="selectOpen=!selectOpen"
+                                        :class="{ 'focus:ring-[#7D0909]' : !selectOpen }"
+                                        class="relative min-h-[38px] flex items-center justify-normal gap-2 w-full text-[#7D0909] py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-[#7D0909] focus:outline-none  text-sm">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                         class="w-6 h-6 text">
+                                        <path d="M0 71.5C0 49.7 17.7 32 39.5 32H472.5C494.3 32 512 49.7 512 71.5c0 9.2-3.2 18.1-9.1 25.2L320 317.8V446.1c0 18.7-15.2 33.9-33.9 33.9c-7.5 0-14.8-2.5-20.8-7.1l-61-47.4c-7.8-6.1-12.4-15.4-12.4-25.3V317.8L9.1 96.7C3.2 89.6 0 80.7 0 71.5zM39.5 64c-4.2 0-7.5 3.4-7.5 7.5c0 1.8 .6 3.4 1.7 4.8L220.3 301.8c2.4 2.9 3.7 6.5 3.7 10.2v88.2l61 47.4c.3 .3 .7 .4 1.1 .4c1 0 1.9-.8 1.9-1.9V312c0-3.7 1.3-7.3 3.7-10.2L478.3 76.3c1.1-1.3 1.7-3 1.7-4.8c0-4.2-3.4-7.5-7.5-7.5H39.5z"/>
+                                    </svg>
+
+                                    <span x-text="selectedItem ? selectedItem.title : 'Sort By'" class="truncate">Sort By</span>
+                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"
+                                 aria-hidden="true" class="w-5 h-5 text-[#7D0909]">
+                                <path d="M 44.982422 12.970703 A 2.0002 2.0002 0 0 0 43.585938 13.585938 L 25 32.171875 L 6.4140625 13.585938 A 2.0002 2.0002 0 0 0 4.9785156 12.980469 A 2.0002 2.0002 0 0 0 3.5859375 16.414062 L 23.585938 36.414062 A 2.0002 2.0002 0 0 0 26.414062 36.414062 L 46.414062 16.414062 A 2.0002 2.0002 0 0 0 44.982422 12.970703 z"/>
+                            </svg>
+                        </span>
+                                </button>
+
+                                <ul x-show="selectOpen"
+                                    x-ref="selectableItemsList"
+                                    @click.away="selectOpen = false"
+                                    x-transition:enter="transition ease-out duration-50"
+                                    x-transition:enter-start="opacity-0 -translate-y-1"
+                                    x-transition:enter-end="opacity-100"
+                                    :class="{ 'bottom-0 mb-10' : selectDropdownPosition === 'top', 'top-0 mt-10' : selectDropdownPosition === 'bottom' }"
+                                    class="absolute w-full mt-1 overflow-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-[#7D0909] focus:outline-none"
+                                    x-cloak>
+
+                                    <template x-for="item in selectableItems" :key="item.value">
+                                        <li @click="selectedItem=item; selectedEventItem=item.title; selectOpen=false; $refs.selectButton.focus();"
+                                            :id="item.value + '-' + selectId"
+                                            :data-disabled="item.disabled"
+                                            :class="{ 'bg-[#7D0909] text-white' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
+                                            @mousemove="selectableItemActive=item"
+                                            class="relative flex items-center h-full py-2 pl-8 text-[#7D0909] cursor-default select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
+                                            <span class="block font-medium truncate" x-text="item.title"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8 z-0">
+                        <h2 class="sr-only">Products</h2>
+
+                        <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+
+                            <template x-for="days in events">
+                                <div class="group flex flex-col overflow-hidden border-2 border-red-950 bg-white">
+                                    <div class="aspect-video bg-gray-200 sm:aspect-none sm:h-48 border-b-2 border-b-red-950">
+                                        <img src="../Image/cover.png"
+                                             alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
+                                             class="h-full w-full object-cover object-center sm:h-full sm:w-full">
+                                    </div>
+                                    <div class="flex flex-1 flex-col justify-center items-center space-y-2 p-4">
+                                        <h3 class="text-sm font-medium text-gray-900">
+                                            <a href="#">
+                                                <span aria-hidden="true" class="inset-0"
+                                                      x-text="days.event_title"></span>
+
+                                            </a>
+                                        </h3>
+                                        <div class="flex flex-1 flex-col justify-center items-center">
+                                            <p class="text-sm italic text-gray-500"
+                                               x-text="formatDateAndTime(days.event_timeS, days.event_timeS)"></p>
+                                            <p class="text-base font-medium text-gray-900" x-text="days.event_host"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <!-- More Events... -->
+                        </div>
+                    </div>
+
+                    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-9 flex justify-end">
+                        <a href="./Page1.2.1.html" type="button"
+                           class="inline-flex items-center gap-x-2 rounded-md bg-red-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                 aria-hidden="true" class="h-5 w-5">
+                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
+                            </svg>
+                            Create
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+<script src="../Admin_JS_OSAS/CalendarScript.js"></script>
+</body>
+</html>
