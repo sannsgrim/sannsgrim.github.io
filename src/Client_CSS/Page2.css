@@ -126,7 +126,9 @@ p {
     align-items: normal;
     width: 100%;
 }
-
+.Title_info_mobile{
+    font-family: "Stick No Bills", sans-serif;
+}
 
 /*=============== Text Field ===============*/
 .input{
@@ -190,9 +192,11 @@ p {
     align-items: normal;
     padding-left: 40px;
     width: 40%;
-
 }
 
+.textFont{
+    font-family: "Stick No Bills", serif;
+}
 
 
 /*=============== Image ===============*/
@@ -200,6 +204,11 @@ p {
     position: relative;
     text-align: center;
     color: white;
+}
+
+.responsive{
+    align-items: center;
+    margin-block-start: auto;
 }
 
 .bottom-right-Text{
