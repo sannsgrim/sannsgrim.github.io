@@ -168,6 +168,10 @@ p {
     gap: 5px;
 }
 
+.textFont{
+    font-family: "Stick No Bills", serif;
+}
+
 @media (min-width: 1024px){
     .bottom_inner{
         display: flex;

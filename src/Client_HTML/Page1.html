@@ -40,7 +40,7 @@
     </style>
 </head>
 <body>
-<section class="section_top">
+<section class="section_top hidden lg:block">
     <div class="top_inner">
 
         <div class="Title_info ">
@@ -77,13 +77,13 @@
     </div>
 </section>
 
-<section class="section_bottom">
+<section class="section_bottom hidden lg:block">
     <div class="bottom_inner">
 
         <div class="InputField">
             <div class="sm:w-full sm:max-w-[840px]">
                 <div class="bg-white px-6 py-4 shadow rounded-2xl sm:rounded-2xl sm:px-12"
-                     style="background-color: white"  x-data="{ modalOpen:false }">
+                     style="background-color: white" x-data="{ modalOpen:false }">
 
                     <form class="space-y-6" action="#" method="POST">
                         <div>
@@ -95,7 +95,8 @@
                         <div>
                             <label for="Student_Id" class="block text-sm font-medium leading-6 text-red-700"></label>
                             <div class="relative mt-2 rounded-md shadow-sm">
-                                <input id="Student_Id" name="Student_Id" type="text" autocomplete="Student_Id" required x-data @keydown.enter.prevent @keydown.enter="modalOpen = modalCondition()"
+                                <input id="Student_Id" name="Student_Id" type="text" autocomplete="Student_Id" required
+                                       x-data @keydown.enter.prevent @keydown.enter="modalOpen = modalCondition()"
                                        class="block input rounded-2xl border-0 bg-transparent py-1.5 shadow-sm ring-1 ring-inset ring-red-600 placeholder:text-red-700 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-xl sm:leading-6"
                                        placeholder="Ex: 2022-00524">
                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -198,7 +199,6 @@
                             </template>
                         </div>
 
-
                     </form>
                 </div>
             </div>
@@ -295,6 +295,173 @@
                 </svg>
             </button>
 
+        </div>
+    </div>
+</section>
+
+
+<!--Mobile-->
+<section class="block lg:hidden">
+    <div class="flex flex-col items-center justify-center p-8 gap-5">
+        <div class="flex flex-col sm:flex-row sm:gap-5 gap-2 items-center justify-center ">
+            <img src="/src/Image/Logo.png" alt="Logo" class="home-image1_Logo">
+            <h1 class="text-[12rem] font-bold text-white textFont block lg:hidden">
+                UEAS
+            </h1>
+        </div>
+        <div class="Title_info ">
+            <h1 class="text-2xl font-bold">
+                WHY WE NEED YOUR DATA (R.A. 10173)
+            </h1>
+            <p>
+                The (Campus/Office/Division/Unit) needs your personal data below to provide verifiable evidence
+                in support to this event and that you participated therein. We will include your data in our printed
+                and electronic reports that we will send through secured channels. By signing herein, we will
+                continuously
+                keep your data and under lock and key, and will limit their use to authorized staff. If you do not
+                agree,
+                please inform us and we will permanently destroy your data after we have sent our reports.
+            </p>
+            <h1 class="text-2xl mt-3 font-bold">
+                WE WILL TAKE PHOTOS/VIDEOS THROUGHOUT THIS EVENT
+            </h1>
+            <p>
+                We will use them as further evidence of this event in compliance to governmental accounting and finance
+                procedures.
+                We will publish your name, organization, and position title with your photo/video only if needed, such
+                as to identify
+                you as speaker. If you do not agree to have your photos/videos taken and used with your other personal
+                data as such,
+                please inform the photographer/videographer. If you wish to see your photos/videos, or lodge a
+                complaint, or withdraw
+                your consent to our continued use of your photos/videos and other personal data, please email
+                usep.tagum.osas@usep.edu.ph,
+                or call (084) 645-3050 local 506.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="block lg:hidden flex flex-row items-center justify-center p-5">
+    <div class="sm:w-full sm:max-w-[840px]">
+        <div class="bg-white px-6 py-4 shadow rounded-2xl sm:rounded-2xl sm:px-12"
+             style="background-color: white" x-data="{ modalOpen:false }">
+
+            <form class="space-y-6" action="#" method="POST">
+                <div>
+                    <h2 class="mt-4 text-center text-[3vw] font-bold leading-9 tracking-tight text-red-700">
+                        ORIENTATION AND STUDENT GENERAL ASSEMBLY</h2>
+                    <p class="text-center text-[2vw] text-red-700">@PECC Gymnasium | 1:00 PM -5:00 PM</p>
+                </div>
+
+                <div>
+                    <label for="Student_Id" class="block text-sm font-medium leading-6 text-red-700"></label>
+                    <div class="relative mt-2 rounded-md shadow-sm">
+                        <input id="Student_Id" name="Student_Id" type="text" autocomplete="Student_Id" required
+                               x-data @keydown.enter.prevent @keydown.enter="modalOpen = modalCondition()"
+                               class="block input rounded-2xl border-0 bg-transparent py-1.5 shadow-sm ring-1 ring-inset ring-red-600 placeholder:text-red-700 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-xl sm:leading-6"
+                               placeholder="Ex: 2022-00524">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 stroke-width="1.5" stroke="darkred" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <input id="Agree" name="Agree" type="checkbox"
+                           class="ml-6 h-5 w-5 bg-transparent rounded-full border-red-700 text-red-600 focus:ring-red-600">
+                    <label for="Agree" class="ml-3 block text-xl leading-6 text-red-700">I agree to the stated
+                        stipulations above</label>
+                </div>
+                <div id="error" class="error"></div>
+
+                <div @keydown.escape.window="modalOpen = false;" @keydown.enter="modalOpen = modalCondition()"
+                     :class="{ 'z-40': modalOpen}" class="submit_buttonDiv">
+                    <button type="button" @click="modalOpen = modalCondition()"
+                            class="mb-4 flex submit_button justify-center rounded-md bg-red-600 px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                        Submit
+                    </button>
+                    <template x-teleport="body">
+
+
+                        <div x-show="modalOpen"
+                             class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+                             x-cloak>
+                            <div x-show="modalOpen"
+                                 x-transition:enter="ease-out duration-300"
+                                 x-transition:enter-start="opacity-0"
+                                 x-transition:enter-end="opacity-100"
+                                 x-transition:leave="ease-in duration-300"
+                                 x-transition:leave-start="opacity-100"
+                                 x-transition:leave-end="opacity-0"
+                                 @click="modalOpen=false"
+                                 class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
+                            <div x-show="modalOpen"
+                                 x-trap.inert.noscroll="modalOpen"
+                                 x-transition:enter="ease-out duration-300"
+                                 x-transition:enter-start="opacity-0 -translate-y-2 sm:scale-95"
+                                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                 x-transition:leave="ease-in duration-200"
+                                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                 x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
+                                 class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all
+                                             sm:my-8 sm:w-full sm:max-w-md sm:p-6">
+
+                                <!--Modal-->
+
+                                <div class="flex flex-col items-center justify-between pt-1">
+                                    <div class="mx-auto flex flex-col h-16 w-16 items-center justify-center rounded-full"
+                                         id="SVG">
+                                        <svg fill="none" height="154px" viewBox="0 0 24 24" width="154px"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                               stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path d="M22 11.0857V12.0057C21.9988 14.1621 21.3005 16.2604 20.0093 17.9875C18.7182 19.7147 16.9033 20.9782 14.8354 21.5896C12.7674 22.201 10.5573 22.1276 8.53447 21.3803C6.51168 20.633 4.78465 19.2518 3.61096 17.4428C2.43727 15.6338 1.87979 13.4938 2.02168 11.342C2.16356 9.19029 2.99721 7.14205 4.39828 5.5028C5.79935 3.86354 7.69279 2.72111 9.79619 2.24587C11.8996 1.77063 14.1003 1.98806 16.07 2.86572M22 4L12 14.01L9 11.01"
+                                                      stroke="#27AE60" stroke-width="2" stroke-linecap="round"
+                                                      stroke-linejoin="round"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <h2 class="text-2xl font-semibold leading-6 text-green-600"
+                                        id="modal-top-titleSuccess">SUCCESS</h2>
+                                    <h2 class="text-2xl font-semibold leading-6 text-red-700"
+                                        id="modal-top-titleFailed">ERROR!</h2>
+
+                                </div>
+                                <div class="relative w-auto pb-3">
+                                    <div class="mt-2 text-center sm:mt-1">
+                                        <h3 class="text-base font-semibold leading-6 text-gray-700"
+                                            id="modal-title">Your attendance has been recorded!</h3>
+                                        <div class="mt-2">
+                                            <p class="text-sm text-center text-gray-500" id="modal-subtitle">You
+                                                can view your attendance history and sanctions after the event.
+                                                Thank you!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-5 sm:mt-6 flex justify-center" id="modal-buttonContainerSuccess">
+                                    <a href="./Page2.html" @click="modalOpen=false" id="modal-buttonSuccess"
+                                       type="button"
+                                       class="flex w-64 justify-center items-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Done</a>
+                                </div>
+                                <div class="mt-5 sm:mt-6 flex justify-center" id="modal-buttonContainerFailed">
+                                    <button @click="modalOpen=false" id="modal-buttonFailed" type="button"
+                                            class="flex w-64 justify-center items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                                        Okay
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+            </form>
         </div>
     </div>
 </section>
