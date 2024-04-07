@@ -209,7 +209,7 @@
             <div class="bottom-right-Text">UEAS</div>
         </div>
 
-        <div class="side_button " x-data="{ openNotify : false }">
+        <div class="side_button" x-data="{ openNotify : false }">
 
             <a href="../Index/index.html" class="button_icon_container1">
                 <svg viewBox="0 0 256 256" class="iconButton" fill="currentColor" height="40" width="40"
@@ -357,7 +357,8 @@
                 <div>
                     <label for="Student_Id_Mobile" class="block text-sm font-medium leading-6 text-red-700"></label>
                     <div class="relative mt-2 rounded-md shadow-sm">
-                        <input id="Student_Id_Mobile" name="Student_Id_Mobile" type="text" autocomplete="Student_Id" required
+                        <input id="Student_Id_Mobile" name="Student_Id_Mobile" type="text" autocomplete="Student_Id"
+                               required
                                x-data @keydown.enter.prevent @keydown.enter="modalOpen = modalCondition_Mobile()"
                                class="block input rounded-2xl border-0 bg-transparent py-1.5 shadow-sm ring-1 ring-inset ring-red-600 placeholder:text-red-700 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-xl sm:leading-6"
                                placeholder="Ex: 2022-00524">
@@ -467,7 +468,18 @@
 </section>
 
 <section class="block lg:hidden flex flex-col items-center justify-center">
-    <div class="side_buttonMobile " x-data="{ openNotify : false }">
+    <div class="side_buttonMobile"
+         style="display: flex;
+         flex-direction: row-reverse;
+         align-items: flex-end;
+         justify-content: center;
+         width: 349px;
+         height: 5%;
+         background: #ffffff;
+         border-top-left-radius: 70px;
+         border-top-right-radius: 70px;
+         gap: 10px;"
+         x-data="{ openNotify : false }">
 
         <a href="../Index/index.html" class="button_icon_container1">
             <svg viewBox="0 0 256 256" class="iconButton" fill="currentColor" height="40" width="40"
