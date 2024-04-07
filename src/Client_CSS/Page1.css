@@ -246,6 +246,19 @@ p {
     gap: 10px;
 }
 
+.side_buttonMobile{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: center;
+    width: 349px;
+    height: 5%;
+    background: #ffffff;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    gap: 10px;
+}
+
 
 .button_icon_container1{
     display: flex;
