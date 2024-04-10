@@ -91,8 +91,10 @@
 
                 <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg px-6 py-4">
                     <div class="flex h-20 shrink-0 gap-x-3 items-center">
-                        <img class="w-auto h-[75px]" src="../Image/Logo.png" alt="Your Company">
-                        <h2 class="LogoText">UEAS</h2>
+                        <a href="../Admin_HTML_OSAS/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 items-center">
+                            <img class="w-auto h-[75px]" src="../Image/Logo.png" alt="Your Company">
+                            <h2 class="LogoText">UEAS</h2>
+                        </a>
                     </div>
                     <hr/>
                     <nav class="flex flex-1 flex-col">
@@ -133,7 +135,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="../Admin_HTML_OSAS/Page1.4.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
@@ -145,7 +147,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="#"
+                                        <a href="../Admin_HTML_OSAS/Page1.5.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -168,9 +170,11 @@
     <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col overscroll-y-none">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg py-4">
-            <div class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
-                <img class="w-auto h-[97px] " src="../Image/Logo.png" alt="Your Company">
-                <h2 class="LogoText">UEAS</h2>
+            <div class="flex h-20 shrink-0 gap-x-3 items-center">
+                <a href="../Admin_HTML_OSAS/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
+                    <img class="w-auto h-[97px] " src="../Image/Logo.png" alt="Your Company">
+                    <h2 class="LogoText">UEAS</h2>
+                </a>
             </div>
             <nav class="flex flex-1 flex-col pad">
                 <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -208,7 +212,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="#"
+                                <a href="../Admin_HTML_OSAS/Page1.4.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true">
@@ -218,7 +222,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="#"
+                                <a href="../Admin_HTML_OSAS/Page1.5.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
@@ -263,7 +267,7 @@
                             </button>
                         </div>
 
-                        <div x-show="notification"
+                        <div x-cloak x-show="notification"
                              @click.away="notification = false"
                              x-transition:enter="transition ease-out duration-100"
                              x-transition:enter-start="transform opacity-0 scale-95"
@@ -319,7 +323,7 @@
                             </button>
                         </div>
 
-                        <div x-show="menu"
+                        <div x-cloak x-show="menu"
                              @click.away="menu = false"
                              x-transition:enter="transition ease-out duration-100"
                              x-transition:enter-start="transform opacity-0 scale-95"

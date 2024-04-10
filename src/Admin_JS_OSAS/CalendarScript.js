@@ -19,6 +19,7 @@ function app() {
                 event_timeS: new Date(2024, 3, 26, 8, 0),
                 event_timeE: new Date(2024, 3, 26, 0, 0),
                 eventStatus: "Done",
+                participants: "All Students",
             },
             {
                 event_date: new Date(2024, 3, 1).toDateString(),
@@ -27,6 +28,8 @@ function app() {
                 event_host: "TSC",
                 event_timeS: new Date(2024, 3, 1, 10, 0),
                 event_timeE: new Date(2024, 3, 1, 0, 0),
+                eventStatus: "Done",
+                participants: "All Students",
 
             },
             {
@@ -37,6 +40,7 @@ function app() {
                 event_timeS: new Date(2024, 0, 21, 8, 0),
                 event_timeE: new Date(2024, 0, 21, 0, 0),
                 eventStatus: "Done",
+                participants: "Society of Information Technology Students",
             },
             {
                 event_date: new Date(2024, 3, 5).toDateString(),
@@ -45,6 +49,9 @@ function app() {
                 event_host: "AFSET",
                 event_timeS: new Date(2024, 3, 5, 8, 0),
                 event_timeE: new Date(2024, 3, 5, 0, 0),
+                eventStatus: "Done",
+                participants: "Association of Future Secondary Education Teachers",
+
             },
 
             {
@@ -54,6 +61,8 @@ function app() {
                 event_host: "OSAS",
                 event_timeS: new Date(2024, 11, 16, 8, 0),
                 event_timeE: new Date(2024, 11, 16, 0, 0),
+                eventStatus: "Done",
+                participants: "All Students",
             }
         ],
 
@@ -132,6 +141,8 @@ function app() {
                             this.event_venue = this.events[i].event_venue;
                             this.event_timeS = this.formatTime(this.events[i].event_timeS);
                             this.event_timeE = this.formatTime(this.events[i].event_timeE);
+                            this.participants = this.events[i].participants;
+                            this.eventStatus = this.events[i].eventStatus;
                             break;
                         } else {
                             this.event_title = '';
@@ -145,6 +156,35 @@ function app() {
                 x++;
             }
         },
+
+
+        showEventModalORG(date) {
+            this.event_date = new Date(this.year, this.month, date).toDateString();
+            for (let x = 0; x <= this.events.length; x++) {
+                if (this.events[x] && this.events[x].event_date === this.event_date && (this.events[x].event_host === "OSAS" || this.events[x].event_host === "SITS" || this.events[x].event_host === "TSC")) {
+                    // open the modal
+                    this.openEventModal = true;
+                    for (let i = 0; i <= this.events.length; i++) {
+                        if (this.events[i] && this.events[i].event_date === this.event_date) {
+                            this.event_title = this.events[i].event_title;
+                            this.event_venue = this.events[i].event_venue;
+                            this.event_timeS = this.formatTime(this.events[i].event_timeS);
+                            this.event_timeE = this.formatTime(this.events[i].event_timeE);
+                            this.participants = this.events[i].participants;
+                            this.eventStatus = this.events[i].eventStatus;
+                            break;
+                        } else {
+                            this.event_title = '';
+                        }
+                    }
+                    break;
+                } else {
+                    this.openEventModal = false;
+                }
+            }
+        },
+
+
 
 
         closeModal() {
@@ -240,6 +280,44 @@ function app() {
                         if (this.events[i] && this.events[i].event_date === event_date) {
                             this.event_title = this.events[i].event_title;
                             return this.event_title;
+                        }
+                        i++;
+                    }
+                    break;
+                }
+                x++;
+            }
+        },
+
+        getEventHost(date) {
+            let event_date = new Date(this.year, this.month, date).toDateString();
+            let x = 0;
+            while (x <= this.events.length) {
+                if (this.events[x] && this.events[x].event_date === event_date) {
+                    let i = 0;
+                    while (i <= this.events.length) {
+                        if (this.events[i] && this.events[i].event_date === event_date) {
+                            this.event_host = this.events[i].event_host;
+                            return this.event_host;
+                        }
+                        i++;
+                    }
+                    break;
+                }
+                x++;
+            }
+        },
+
+        getEventParticipants(date) {
+            let event_date = new Date(this.year, this.month, date).toDateString();
+            let x = 0;
+            while (x <= this.events.length) {
+                if (this.events[x] && this.events[x].event_date === event_date) {
+                    let i = 0;
+                    while (i <= this.events.length) {
+                        if (this.events[i] && this.events[i].event_date === event_date) {
+                            this.participants = this.events[i].participants;
+                            return this.participants;
                         }
                         i++;
                     }
