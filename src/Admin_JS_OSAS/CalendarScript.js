@@ -12,57 +12,25 @@ function app() {
 
         events: [
             {
-                event_date: new Date(2024, 3, 26).toDateString(),
+                event_date: new Date(2024, 0, 23).toDateString(),
                 event_title: "PQA General Orientation",
                 event_venue: "PECC Gym",
                 event_host: "OSAS",
-                event_timeS: new Date(2024, 3, 26, 8, 0),
-                event_timeE: new Date(2024, 3, 26, 0, 0),
+                event_timeS: new Date(2024, 0, 23, 8, 0),
+                event_timeE: new Date(2024, 0, 23, 0, 0),
                 eventStatus: "Done",
                 participants: "All Students",
             },
             {
-                event_date: new Date(2024, 3, 1).toDateString(),
-                event_title: "MLBB Tournament",
-                event_venue: "FTC Hall",
-                event_host: "TSC",
-                event_timeS: new Date(2024, 3, 1, 10, 0),
-                event_timeE: new Date(2024, 3, 1, 0, 0),
-                eventStatus: "Done",
-                participants: "All Students",
-
-            },
-            {
-                event_date: new Date(2024, 0, 21).toDateString(),
-                event_title: "BSIT Orientation and General Assembly",
+                event_date: new Date(2024, 2, 22).toDateString(),
+                event_title: "BSIT Techofest 2024",
                 event_venue: "PECC Gym",
                 event_host: "SITS",
-                event_timeS: new Date(2024, 0, 21, 8, 0),
-                event_timeE: new Date(2024, 0, 21, 0, 0),
+                event_timeS: new Date(2024, 2, 22, 8, 0),
+                event_timeE: new Date(2024, 2, 22, 0, 0),
                 eventStatus: "Done",
                 participants: "Society of Information Technology Students",
-            },
-            {
-                event_date: new Date(2024, 3, 5).toDateString(),
-                event_title: "AFSET Day",
-                event_venue: "Tagum Campus",
-                event_host: "AFSET",
-                event_timeS: new Date(2024, 3, 5, 8, 0),
-                event_timeE: new Date(2024, 3, 5, 0, 0),
-                eventStatus: "Done",
-                participants: "Association of Future Secondary Education Teachers",
 
-            },
-
-            {
-                event_date: new Date(2024, 11, 16).toDateString(),
-                event_title: "Exam Day",
-                event_venue: "PECC Gym",
-                event_host: "OSAS",
-                event_timeS: new Date(2024, 11, 16, 8, 0),
-                event_timeE: new Date(2024, 11, 16, 0, 0),
-                eventStatus: "Done",
-                participants: "All Students",
             }
         ],
 

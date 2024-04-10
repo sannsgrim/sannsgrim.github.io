@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page - OSAS: Report</title>
-    <link rel="stylesheet" href="../Admin_CSS_OSAS/Page1.css">
+    <title>Admin Page - TSC: Event</title>
+    <link rel="stylesheet" href="../Admin_CSS_TSC/Page1.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
@@ -17,8 +17,7 @@
     <!--Poppins Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stick+No+Bills:wght@200..800&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stick+No+Bills:wght@200..800&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -45,10 +44,9 @@
     </style>
 </head>
 <body class="antialiased overscroll-y-none">
-
 <div x-data="{ showMobile: false }">
 
-    <div x-cloak x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+    <div x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
 
         <div x-show="showMobile"
              x-transition:enter="transition-opacity ease-linear duration-300"
@@ -93,7 +91,7 @@
 
                 <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg px-6 py-4">
                     <div class="flex h-20 shrink-0 gap-x-3 items-center">
-                        <a href="../Admin_HTML_OSAS/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 items-center">
+                        <a href="../Admin_HTML_TSC/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 items-center">
                             <img class="w-auto h-[75px]" src="../Image/Logo.png" alt="Your Company">
                             <h2 class="LogoText">UEAS</h2>
                         </a>
@@ -104,7 +102,7 @@
                             <li>
                                 <ul role="list" class="-mx-2 space-y-1">
                                     <li>
-                                        <a href="../Admin_HTML_OSAS/Page1.1.html"
+                                        <a href="../Admin_HTML_TSC/Page1.1.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -115,8 +113,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Admin_HTML_OSAS/Page1.2.0.html"
-                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                        <a href="../Admin_HTML_TSC/Page1.2.0.html"
+                                           class="text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                                                  aria-hidden="true">
@@ -126,7 +124,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Admin_HTML_OSAS/Page1.3.html"
+                                        <a href="../Admin_HTML_TSC/Page1.3.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -137,8 +135,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Admin_HTML_OSAS/Page1.4.html"
-                                           class="text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                        <a href="../Admin_HTML_TSC/Page1.4.html"
+                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
                                                  aria-hidden="true">
@@ -149,7 +147,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="../Admin_HTML_OSAS/Page1.5.html"
+                                        <a href="../Admin_HTML_TSC/Page1.5.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -173,7 +171,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg py-4">
             <div class="flex h-20 shrink-0 gap-x-3 items-center">
-                <a href="../Admin_HTML_OSAS/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
+                <a href="../Admin_HTML_TSC/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
                     <img class="w-auto h-[97px] " src="../Image/Logo.png" alt="Your Company">
                     <h2 class="LogoText">UEAS</h2>
                 </a>
@@ -183,7 +181,7 @@
                     <li>
                         <ul role="list" class="flex flex-col items-start">
                             <li class="w-full">
-                                <a href="../Admin_HTML_OSAS/Page1.1.html"
+                                <a href="../Admin_HTML_TSC/Page1.1.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
@@ -194,8 +192,8 @@
                             </li>
 
                             <li class="w-full">
-                                <a href="../Admin_HTML_OSAS/Page1.2.0.html"
-                                   class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
+                                <a href="../Admin_HTML_TSC/Page1.2.0.html"
+                                   class="text-black group flex items-center gap-x-3 p-4 text-sm leading-6 font-semibold w-full bgSide pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true">
                                         <path d="M128 0C110.3 0 96 14.3 96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32zM256 368c0-91.8 70.3-167.2 160-175.3V192H0V464c0 26.5 21.5 48 48 48H330.8C285.6 480.1 256 427.5 256 368zM432 512a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm16-208v48h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V384H368c-8.8 0-16-7.2-16-16s7.2-16 16-16h48V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/>
@@ -204,7 +202,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="../Admin_HTML_OSAS/Page1.3.html"
+                                <a href="../Admin_HTML_TSC/Page1.3.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
@@ -214,8 +212,8 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="../Admin_HTML_OSAS/Page1.4.html"
-                                   class="text-black group flex items-center gap-x-3 p-4 text-sm leading-6 font-semibold w-full bgSide pl-10">
+                                <a href="../Admin_HTML_TSC/Page1.4.html"
+                                   class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true">
                                         <path d="M24.707,8.793l-6.5-6.5C18.019,2.105,17.765,2,17.5,2H7C5.895,2,5,2.895,5,4v22c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2 V9.5C25,9.235,24.895,8.981,24.707,8.793z M21.707,16.707l-4,4C17.512,20.902,17.256,21,17,21s-0.512-0.098-0.707-0.293L13,17.414 l-3.293,3.293c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l4-4c0.391-0.391,1.023-0.391,1.414,0L17,18.586l3.293-3.293 c0.391-0.391,1.023-0.391,1.414,0S22.098,16.316,21.707,16.707z M18,10c-0.552,0-1-0.448-1-1V3.904L23.096,10H18z"/>
@@ -224,7 +222,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="../Admin_HTML_OSAS/Page1.5.html"
+                                <a href="../Admin_HTML_TSC/Page1.5.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
@@ -289,16 +287,13 @@
                                 <ul class="divide-y">
 
                                     <li class='py-4 px-4 flex items-center hover:bg-gray-50 text-black text-sm cursor-pointer'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                             fill="currentColor" class="w-24 h-12 text-[#7D0909]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-24 h-12 text-[#7D0909]">
                                             <path d="M128 0c13.3 0 24 10.7 24 24V64H296V24c0-13.3 10.7-24 24-24s24 10.7 24 24V64h40c35.3 0 64 28.7 64 64v16 48H432 400 352 48V448c0 8.8 7.2 16 16 16H284.5c12.3 18.8 28 35.1 46.3 48H64c-35.3 0-64-28.7-64-64V192 144 128C0 92.7 28.7 64 64 64h40V24c0-13.3 10.7-24 24-24zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 240a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm0-192c-8.8 0-16 7.2-16 16v80c0 8.8 7.2 16 16 16s16-7.2 16-16V288c0-8.8-7.2-16-16-16z"/>
                                         </svg>
                                         <div class="ml-6">
-                                            <h3 class="text-sm text-[#7D0909] font-semibold">The Office of the Student
-                                                Affairs has
-                                                cancelled ‘Classwork 04/01/2024’</h3>
-                                            <p class="text-xs text-red-400 mt-2">Hello there, unfortunately the event
-                                                was cancelled due to a increase of heat index
+                                            <h3 class="text-sm text-[#7D0909] font-semibold">The Office of the Student Affairs has
+                                                cancelled  ‘Classwork 04/01/2024’</h3>
+                                            <p class="text-xs text-red-400 mt-2">Hello there, unfortunately the event was cancelled due to a increase of heat index
                                                 and it has been decided to cancel the whole class for 1 week...</p>
                                             <p class="text-xs text-[#7D0909] leading-3 mt-2">Just Now</p>
                                         </div>
@@ -349,8 +344,7 @@
                                     </svg>
                                     Office of Student Affairs and Services
                                 </a>
-                                <a href="../Index/index.html"
-                                   class="text-gray-700 group flex items-center px-4 py-2 text-sm"
+                                <a href="../Index/index.html" class="text-gray-700 group flex items-center px-4 py-2 text-sm"
                                    role="menuitem" tabindex="-1" id="menu-item-1">
                                     <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
@@ -370,21 +364,19 @@
 
         <main class="py-3 overscroll-y-none" x-data="myApp" x-init="[initDate(), getNoOfDays()]" x-cloak>
             <div class="px-4 sm:px-6 lg:px-8 flex flex-col gap-2">
+
                 <div class="flex flex-row items-center justify-normal gap-2 w-full bg-white p-5 shadow-lg">
-                    <img src="../Image/Logo.png" alt="Logo" class="w-[98px] h-[98px]">
+                    <img src="../Image/tsc.png" alt="Logo" class="w-[98px] h-[98px]">
                     <div>
-                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Office of Student Affairs
-                            and Services</p>
-                        <p style="font-style: italic;">usep.tagum.osas@usep.edu.ph</p>
+                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Counsil</p>
+                        <p style="font-style: italic;">tagumstudentcouncil.archive@gmail.com</p>
                     </div>
                 </div>
 
-
                 <div class="bg-white">
-
                     <div class="flex flex-col lg:flex-row sm:flex-col items-center justify-between pMake w-full h-auto z-10 bg-white pl-8 lg:pr-20 pr-8">
                         <div class="flex flex-col gap-2">
-                            <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Reports Overview</p>
+                            <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Events Overview</p>
                         </div>
                         <div class="flex flex-col lg:flex-row sm:flex-row gap-2">
                             <div x-data="{
@@ -711,9 +703,8 @@
 
                         <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
 
-
-                            <a href="../Admin_HTML_OSAS/Reports/Page1.4.1.html">
-                                <div class="group flex flex-col overflow-hidden border-2 border-red-950 bg-white event1">
+                            <template x-for="day in events">
+                                <div class="group flex flex-col overflow-hidden border-2 border-red-950 bg-white">
                                     <div class="aspect-video bg-gray-200 sm:aspect-none sm:h-48 border-b-2 border-b-red-950">
                                         <img src="../Image/cover.png"
                                              alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
@@ -721,40 +712,33 @@
                                     </div>
                                     <div class="flex flex-1 flex-col justify-center items-center space-y-2 p-4">
                                         <h3 class="text-sm font-medium text-gray-900">
-                                            <span aria-hidden="true" class="inset-0">PQA General Orientation</span>
+                                            <a href="#">
+                                                <span aria-hidden="true" class="inset-0"
+                                                      x-text="day.event_title"></span>
 
+                                            </a>
                                         </h3>
                                         <div class="flex flex-1 flex-col justify-center items-center">
-                                            <p class="text-sm italic text-gray-500">January 23rd, 2024 at 8:00 AM</p>
-                                            <p class="text-base font-medium text-gray-900">OSAS</p>
+                                            <p class="text-sm italic text-gray-500"
+                                               x-text="formatDateAndTime(day.event_timeS, day.event_timeS)"></p>
+                                            <p class="text-base font-medium text-gray-900" x-text="day.event_host"></p>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-
-                            <a href="../Admin_HTML_OSAS/Reports/Page1.4.2.html">
-                                <div class="group flex flex-col overflow-hidden border-2 border-red-950 bg-white event1">
-                                    <div class="aspect-video bg-gray-200 sm:aspect-none sm:h-48 border-b-2 border-b-red-950">
-                                        <img src="../Image/cover.png"
-                                             alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
-                                             class="h-full w-full object-cover object-center sm:h-full sm:w-full">
-                                    </div>
-                                    <div class="flex flex-1 flex-col justify-center items-center space-y-2 p-4">
-                                        <h3 class="text-sm font-medium text-gray-900">
-                                            <span aria-hidden="true" class="inset-0">BSIT Technofest 2024</span>
-
-                                        </h3>
-                                        <div class="flex flex-1 flex-col justify-center items-center">
-                                            <p class="text-sm italic text-gray-500">March 22nd, 2024 at 8:00 AM</p>
-                                            <p class="text-base font-medium text-gray-900">SITS</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-
+                            </template>
                             <!-- More Events... -->
                         </div>
+                    </div>
+
+                    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-9 flex justify-end">
+                        <a href="./Page1.2.1.html" type="button"
+                           class="inline-flex items-center gap-x-2 rounded-md bg-red-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                 aria-hidden="true" class="h-5 w-5">
+                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
+                            </svg>
+                            Create
+                        </a>
                     </div>
 
                 </div>
@@ -763,7 +747,6 @@
         </main>
     </div>
 </div>
-
 <script src="../Admin_JS_OSAS/CalendarScript.js"></script>
 </body>
 </html>
