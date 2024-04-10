@@ -23,14 +23,23 @@ function app() {
             },
             {
                 event_date: new Date(2024, 2, 22).toDateString(),
-                event_title: "BSIT Techofest 2024",
+                event_title: "BSIT Technofest 2024",
                 event_venue: "PECC Gym",
                 event_host: "SITS",
                 event_timeS: new Date(2024, 2, 22, 8, 0),
-                event_timeE: new Date(2024, 2, 22, 0, 0),
+                event_timeE: new Date(2024, 2, 22, 16, 0),
                 eventStatus: "Done",
                 participants: "Society of Information Technology Students",
-
+            },
+            {
+                event_date: new Date(2023, 11, 12).toDateString(),
+                event_title: "Paskuhan 2023",
+                event_venue: "USeP Tagum Campus",
+                event_host: "TSC",
+                event_timeS: new Date(2023, 11, 12, 17, 0),
+                event_timeE: new Date(2023, 11, 12, 19, 0),
+                eventStatus: "Done",
+                participants: "All Students",
             }
         ],
 

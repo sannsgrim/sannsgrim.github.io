@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Change Lang ni to TSC OR OSAS AND ORG-->
-    <title>Admin Page - TSC: Report</title>
-    <link rel="stylesheet" href="../../Admin_CSS_TSC/Page1.css">
+    <title>Admin Page - TSC: Reports</title>
+    <link rel="stylesheet" href="../../Admin_CSS_OSAS/Page1.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
@@ -49,7 +49,7 @@
 
 <div x-data="{ showMobile: false }">
 
-    <div x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+    <div x-cloak x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
 
         <div x-show="showMobile"
              x-transition:enter="transition-opacity ease-linear duration-300"
@@ -374,122 +374,96 @@
                 <div class="flex flex-row items-center justify-normal gap-2 w-full bg-white p-5 shadow-lg">
                     <img src="../../Image/tsc.png" alt="Logo" class="w-[98px] h-[98px]">
                     <div>
-                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Council</p>
+                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Counsil</p>
                         <p style="font-style: italic;">tagumstudentcouncil.archive@gmail.com</p>
                     </div>
                 </div>
 
-                <div class="bg-white pb-20 px-10 pt-10 h-auto relative">
-                    <h1 class="font-bold text-2xl mb-6">Attendance</h1>
-                    <h2 class="font-bold text-2xl text-center mb-6">Bachelor of Science in Information Technology</h2>
-                    <div class="flex">
-                        <!-- Rectangle 1 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-l-lg p-4 w-200">
-                            <!-- Adjust the width as needed -->
-                            <p class="font-italic">BSIT- 1IT</p>
-                        </div>
 
-                        <!-- Rectangle 2 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Total Students: 35</p>
-                        </div>
+                <div class="bg-white pb-4 px-4">
 
-                        <!-- Rectangle 3 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Students attended: 30</p>
-                        </div>
 
-                        <!-- Rectangle 4 -->
-                        <a href="Page1.4.2.html" style="text-decoration: none;">
-                            <div class="bg-white border-2 border-gray-300 rounded-r-lg p-4 flex items-center justify-between w-60">
-                                <p>View All</p>
-                                <img src="../../Image/view.png" alt="View Image" class="w-6 h-6">
+                    <div class="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                        <!-- Event Details -->
+                        <div class="lg:max-w-2xl lg:self-start">
+
+                            <div>
+                                <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Paskuhan 2023</h1>
                             </div>
-                        </a>
-                    </div>
-
-                    <div class="flex">
-                        <!-- Rectangle 1 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-l-lg p-4 max-w-max w-auto">
-                            <p class="font-italic">BSIT-2IT</p>
                         </div>
 
-                        <!-- Rectangle 2 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Total Students: 41</p>
+                        <!-- Event Details -->
+                        <div class="mt-2 lg:col-start-1 lg:row-start-2 lg:max-w-2xl lg:self-normal">
+                            <div class="flex py-2 items-center">
+                                <p class="text-base text-gray-900">
+                                    Date of Event</p>
+                                <p class="text-base ml-32  text-gray-900">
+                                    : January 23, 2024</p>
+                            </div>
+                            <div class="flex py-2 items-center">
+                                <p class="text-base mr-1 text-gray-900">
+                                    Venue</p>
+                                <p class="text-base ml-44  text-gray-900">
+                                    : PECC Gymnasium</p>
+                            </div>
+                            <div class="flex py-2 items-center">
+                                <p class="text-base text-gray-900">
+                                    In-charge</p>
+                                <p class="text-base ml-40  text-gray-900">
+                                    : OSAS</p>
+                            </div>
+                            <div class="flex py-2 items-center">
+                                <p class="text-base text-gray-900">
+                                    Time</p>
+                                <p class="text-base ml-48  text-gray-900">
+                                    : 8:00 AM - 11:00 AM</p>
+                            </div>
+                            <div class="flex py-2 items-center">
+                                <p class="text-base text-gray-900">
+                                    Status</p>
+                                <p class="text-base ml-44  text-gray-900">
+                                    : Finished</p>
+                            </div>
+                            <div class="flex py-2 items-center">
+                                <p class="text-base text-gray-900">
+                                    Sanction</p>
+                                <p class="text-base ml-40  text-gray-900">
+                                    : Yes</p>
+                            </div>
                         </div>
 
-                        <!-- Rectangle 3 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Students attended: 40</p>
-                        </div>
 
-                        <!-- Rectangle 4 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-r-lg p-4 flex items-center justify-between w-60">
-                            <p>View All</p>
-                            <img src="../../Image/view.png" alt="View Image" class="w-6 h-6">
-                        </div>
-                    </div>
+                        <!-- Event Sanction -->
+                        <div class="mt-10 responsive lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-start lg:pl-10 flex items-center justify-center lg:mt-20">
 
-                    <div class="flex">
-                        <!-- Rectangle 1 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-l-lg p-4 max-w-max w-auto">
-                            <p class="font-italic">BSIT-3IT</p>
-                        </div>
+                            <div class="mt-10 grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 flex justify-center">
+                                <div class="col-span-3 flex justify-center">
+                                    <a  href="../Reports/Page1.4.1.1.html" type="button"
+                                            class="inline-flex items-center gap-x-2 rounded-md bg-red-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                                        View Attendance
+                                    </a>
 
-                        <!-- Rectangle 2 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Total Students: 30</p>
-                        </div>
+                                </div>
+                                <div class="col-span-3 flex justify-center">
+                                    <a  href="../Reports/Page1.4.1.1(Sanction).html" type="button"
+                                        class="inline-flex items-center gap-x-2 rounded-md bg-red-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                                        View Sanction
+                                    </a>
 
-                        <!-- Rectangle 3 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Students attended: 29</p>
-                        </div>
+                                </div>
 
-                        <!-- Rectangle 4 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-r-lg p-4 flex items-center justify-between w-60">
-                            <p>View All</p>
-                            <img src="../../Image/view.png" alt="View Image" class="w-6 h-6">
-                        </div>
-                    </div>
 
-                    <div class="flex">
-                        <!-- Rectangle 1 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-l-lg p-4 max-w-max w-auto">
-                            <p class="font-italic">BSIT-4IT</p>
-                        </div>
-
-                        <!-- Rectangle 2 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Total Students: 25</p>
-                        </div>
-
-                        <!-- Rectangle 3 -->
-                        <div class="bg-white border-2 border-gray-300 p-4 w-60">
-                            <p class="font-italic">Students attended: 20</p>
-                        </div>
-
-                        <!-- Rectangle 4 -->
-                        <div class="bg-white border-2 border-gray-300 rounded-r-lg p-4 flex items-center justify-between w-60">
-                            <p>View All</p>
-                            <img src="../../Image/view.png" alt="View Image" class="w-6 h-6">
+                            </div>
                         </div>
                     </div>
-                    <!-- Back button -->
-                    <a href="page1.4.0.html">
-                        <button class="absolute bottom-5 right-10 bg-red-800 hover:bg-yellow-400 text-white hover:text-red-800 px-4 py-2 rounded">
-                            Back
-                        </button>
-                    </a>
+
+
                 </div>
-
             </div>
-        </main>
 
+        </main>
     </div>
 </div>
-
 
 
 </body>

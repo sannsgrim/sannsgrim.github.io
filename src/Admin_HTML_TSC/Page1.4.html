@@ -372,7 +372,7 @@
         <main class="py-3 overscroll-y-none">
             <div class="px-4 sm:px-6 lg:px-8 flex flex-col gap-2">
                 <div class="flex flex-row items-center justify-normal gap-2 w-full bg-white p-5 shadow-lg">
-                    <img src="../Image/Logo.png" alt="Logo" class="w-[98px] h-[98px]">
+                    <img src="../Image/tsc.png" alt="Logo" class="w-[98px] h-[98px]">
                     <div>
                         <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Counsil</p>
                         <p style="font-style: italic;">tagumstudentcouncil.archive@gmail.com</p>
@@ -380,12 +380,365 @@
                 </div>
 
 
-                <div class="bg-white pb-4 px-4 pt-10">
+                <div class="bg-white">
 
-                    <!--Contents Here-->
-                    <h1>Contents Here</h1>
+                    <div class="flex flex-col lg:flex-row sm:flex-col items-center justify-between pMake w-full h-auto z-10 bg-white pl-8 lg:pr-20 pr-8">
+                        <div class="flex flex-col gap-2">
+                            <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Reports Overview</p>
+                        </div>
+                        <div class="flex flex-col lg:flex-row sm:flex-row gap-2">
+                            <div x-data="{
+                selectOpen: false,
+                selectedItem: '',
+                selectableItems: [
+                {
+                title: 'SITS',
+                value: 'sits',
+                disabled: false
+                },
+                {
+                title: 'SABES',
+                value: 'sabes',
+                disabled: false
+                },
+                {
+                title: 'AFSET',
+                value: 'afset',
+                disabled: false
+                },
+                {
+                title: 'TSC',
+                value: 'tsc',
+                disabled: false
+                },
+                {
+                title: 'OSAS',
+                value: 'osas',
+                disabled: false
+                },
+                {
+                title: 'All Org',
+                value: 'all',
+                disabled: false
+                }
+                ],
+                selectableItemActive: null,
+                selectId: $id('select'),
+                selectKeydownValue: '',
+                selectKeydownTimeout: 1000,
+                selectKeydownClearTimeout: null,
+                selectDropdownPosition: 'bottom',
+                selectableItemIsActive(item) {
+                return this.selectableItemActive && this.selectableItemActive.value===item.value;
+                },
+                selectableItemActiveNext(){
+                let index = this.selectableItems.indexOf(this.selectableItemActive);
+                if(index < this.selectableItems.length-1){
+                this.selectableItemActive = this.selectableItems[index+1];
+                this.selectScrollToActiveItem();
+                }
+                },
+                selectableItemActivePrevious(){
+                let index = this.selectableItems.indexOf(this.selectableItemActive);
+                if(index > 0){
+                this.selectableItemActive = this.selectableItems[index-1];
+                this.selectScrollToActiveItem();
+                }
+                },
+                selectScrollToActiveItem(){
+                var activeElement;var newScrollPos;if(this.selectableItemActive){
+                activeElement = document.getElementById(this.selectableItemActive.value + '-' + this.selectId)
+                newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.selectableItemsList.offsetHeight;
+                if(newScrollPos > 0){
+                this.$refs.selectableItemsList.scrollTop=newScrollPos;
+                    } else {
+                    this.$refs.selectableItemsList.scrollTop=0;
+                    }
+                    }
+                    },
+                    selectKeydown(event){
+                    var selectedItemBestMatch;if (event.keyCode >= 65 && event.keyCode <= 90) {
+
+                        this.selectKeydownValue += event.key;
+                        selectedItemBestMatch = this.selectItemsFindBestMatch();
+                        if(selectedItemBestMatch){
+                        if(this.selectOpen){
+                        this.selectableItemActive = selectedItemBestMatch;
+                        this.selectScrollToActiveItem();
+                        } else {
+                        this.selectedItem = this.selectableItemActive = selectedItemBestMatch;
+                        }
+                        }
+
+                        if(this.selectKeydownValue !== ''){
+                        clearTimeout(this.selectKeydownClearTimeout);
+                        this.selectKeydownClearTimeout = setTimeout(() => {this.selectKeydownValue = '';
+                        }, this.selectKeydownTimeout);
+                        }
+                        }
+                        },
+
+      selectItemsFindBestMatch(){
+      var typedValue = this.selectKeydownValue.toLowerCase();
+      var bestMatch = null;
+      var bestMatchIndex = -1;
+      for (var i = 0; i < this.selectableItems.length; i++) {
+          var title = this.selectableItems[i].title.toLowerCase();
+          var index = title.indexOf(typedValue);
+          if (index > -1 && (bestMatchIndex === -1 || index < bestMatchIndex) && !this.selectableItems[i].disabled) {
+              bestMatch = this.selectableItems[i];
+              bestMatchIndex = index;
+          }
+      }
+      return bestMatch;
+      },
+       selectPositionUpdate(){
+       var selectDropdownBottomPos = this.$refs.selectButton.getBoundingClientRect().top + this.$refs.selectButton.offsetHeight + parseInt(window.getComputedStyle(this.$refs.selectableItemsList).maxHeight);
+       if(window.innerHeight < selectDropdownBottomPos){
+           this.selectDropdownPosition = 'top';
+       } else {
+           this.selectDropdownPosition = 'bottom';
+       }
+       }
+}"
+                                 x-init="
+                                 $watch('selectOpen',
+                                 function(){if(!selectedItem){
+                                 selectableItemActive=selectableItems[0];
+                                 } else {
+                                 selectableItemActive=selectedItem;
+                                 }
+                                 setTimeout(function(){
+                                 selectScrollToActiveItem();
+                                 }, 10);
+                                 selectPositionUpdate();
+                                 window.addEventListener('resize', (event) => { selectPositionUpdate(); });
+                                 });"
+                                 @keydown.escape="if(selectOpen){ selectOpen=false; }"
+                                 @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.up="if(selectOpen){ selectableItemActivePrevious(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.enter="selectedItem=selectableItemActive; selectOpen=false;"
+                                 @keydown="selectKeydown($event);"
+                                 class="relative w-64">
+
+                                <button x-ref="selectButton" @click="selectOpen=!selectOpen"
+                                        :class="{ 'focus:ring-[#7D0909]' : !selectOpen }"
+                                        class="relative min-h-[38px] flex items-center justify-normal gap-2 w-full text-[#7D0909] py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-[#7D0909] focus:outline-none text-sm">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                         class="w-6 h-6 text">
+                                        <path d="M0 71.5C0 49.7 17.7 32 39.5 32H472.5C494.3 32 512 49.7 512 71.5c0 9.2-3.2 18.1-9.1 25.2L320 317.8V446.1c0 18.7-15.2 33.9-33.9 33.9c-7.5 0-14.8-2.5-20.8-7.1l-61-47.4c-7.8-6.1-12.4-15.4-12.4-25.3V317.8L9.1 96.7C3.2 89.6 0 80.7 0 71.5zM39.5 64c-4.2 0-7.5 3.4-7.5 7.5c0 1.8 .6 3.4 1.7 4.8L220.3 301.8c2.4 2.9 3.7 6.5 3.7 10.2v88.2l61 47.4c.3 .3 .7 .4 1.1 .4c1 0 1.9-.8 1.9-1.9V312c0-3.7 1.3-7.3 3.7-10.2L478.3 76.3c1.1-1.3 1.7-3 1.7-4.8c0-4.2-3.4-7.5-7.5-7.5H39.5z"/>
+                                    </svg>
+                                    <span x-text="selectedItem ? selectedItem.title : 'Sort By'" class="truncate">Sort By</span>
+                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"
+                                             aria-hidden="true" class="w-5 h-5 text-[#7D0909]">
+                                            <path d="M 44.982422 12.970703 A 2.0002 2.0002 0 0 0 43.585938 13.585938 L 25 32.171875 L 6.4140625 13.585938 A 2.0002 2.0002 0 0 0 4.9785156 12.980469 A 2.0002 2.0002 0 0 0 3.5859375 16.414062 L 23.585938 36.414062 A 2.0002 2.0002 0 0 0 26.414062 36.414062 L 46.414062 16.414062 A 2.0002 2.0002 0 0 0 44.982422 12.970703 z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+
+                                <ul x-show="selectOpen"
+                                    x-ref="selectableItemsList"
+                                    @click.away="selectOpen = false"
+                                    x-transition:enter="transition ease-out duration-50"
+                                    x-transition:enter-start="opacity-0 -translate-y-1"
+                                    x-transition:enter-end="opacity-100"
+                                    :class="{ 'bottom-0 mb-10' : selectDropdownPosition === 'top', 'top-0 mt-10' : selectDropdownPosition === 'bottom' }"
+                                    class="absolute w-full mt-1 overflow-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-[#7D0909] focus:outline-none"
+                                    x-cloak>
+
+                                    <template x-for="item in selectableItems" :key="item.value">
+                                        <li @click="selectedItem=item; selectedEventItem=item.title; selectOpen=false; $refs.selectButton.focus();"
+                                            :id="item.value + '-' + selectId"
+                                            :data-disabled="item.disabled"
+                                            :class="{ 'bg-[#7D0909] text-white' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
+                                            @mousemove="selectableItemActive=item"
+                                            class="relative flex items-center h-full py-2 pl-8 text-[#7D0909] cursor-default select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
+                                            <span class="block font-medium truncate" x-text="item.title"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+
+
+                            <div x-data="{
+               selectOpen: false,
+               selectedItem: '',
+               selectableItems: [{title: 'Upcoming Events',
+               value: 'UE',
+               disabled: false
+               },
+               {title: 'Cancelled Events',
+               value: 'CE',
+               disabled: false
+               },
+               {title: 'ALL',
+               value: 'all',
+               disabled: false
+               }
+               ],
+               selectableItemActive: null,
+               selectId: $id('select'),
+               selectKeydownValue: '',
+               selectKeydownTimeout: 1000,
+               selectKeydownClearTimeout: null,
+               selectDropdownPosition: 'bottom',
+               selectableItemIsActive(item) {return this.selectableItemActive && this.selectableItemActive.value===item.value;},
+               selectableItemActiveNext(){let index = this.selectableItems.indexOf(this.selectableItemActive);if(index < this.selectableItems.length-1){this.selectableItemActive = this.selectableItems[index+1];this.selectScrollToActiveItem();
+               }
+               },
+               selectableItemActivePrevious(){let index = this.selectableItems.indexOf(this.selectableItemActive);if(index > 0){this.selectableItemActive = this.selectableItems[index-1];this.selectScrollToActiveItem();
+               }
+               },
+               selectScrollToActiveItem(){var activeElement;var newScrollPos;if(this.selectableItemActive){activeElement = document.getElementById(this.selectableItemActive.value + '-' + this.selectId)
+               newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.selectableItemsList.offsetHeight;if(newScrollPos > 0){this.$refs.selectableItemsList.scrollTop=newScrollPos;
+                    } else {
+                    this.$refs.selectableItemsList.scrollTop=0;
+                    }
+                    }
+                    },
+                    selectKeydown(event){
+                    var selectedItemBestMatch;if (event.keyCode >= 65 && event.keyCode <= 90) {
+
+                        this.selectKeydownValue += event.key;
+                        selectedItemBestMatch = this.selectItemsFindBestMatch();
+                        if(selectedItemBestMatch){
+                        if(this.selectOpen){
+                        this.selectableItemActive = selectedItemBestMatch;
+                        this.selectScrollToActiveItem();
+                        } else {
+                        this.selectedItem = this.selectableItemActive = selectedItemBestMatch;
+                        }
+                        }
+
+                        if(this.selectKeydownValue !== ''){
+                        clearTimeout(this.selectKeydownClearTimeout);
+                        this.selectKeydownClearTimeout = setTimeout(() => {this.selectKeydownValue = '';
+                        }, this.selectKeydownTimeout);
+                        }
+                        }
+                        },
+
+      selectItemsFindBestMatch(){
+      var typedValue = this.selectKeydownValue.toLowerCase();
+      var bestMatch = null;
+      var bestMatchIndex = -1;
+      for (var i = 0; i < this.selectableItems.length; i++) {
+          var title = this.selectableItems[i].title.toLowerCase();
+          var index = title.indexOf(typedValue);
+          if (index > -1 && (bestMatchIndex === -1 || index < bestMatchIndex) && !this.selectableItems[i].disabled) {
+              bestMatch = this.selectableItems[i];
+              bestMatchIndex = index;
+          }
+      }
+      return bestMatch;
+      },
+       selectPositionUpdate(){
+       var selectDropdownBottomPos = this.$refs.selectButton.getBoundingClientRect().top + this.$refs.selectButton.offsetHeight + parseInt(window.getComputedStyle(this.$refs.selectableItemsList).maxHeight);
+       if(window.innerHeight < selectDropdownBottomPos){
+           this.selectDropdownPosition = 'top';
+       } else {
+           this.selectDropdownPosition = 'bottom';
+       }
+       }
+}"
+                                 x-init="
+                     $watch('selectOpen',
+                     function(){if(!selectedItem){
+                     selectableItemActive=selectableItems[0];
+                     } else {
+                     selectableItemActive=selectedItem;
+                     }
+                     setTimeout(function(){
+                     selectScrollToActiveItem();
+                     }, 10);
+                     selectPositionUpdate();
+                     window.addEventListener('resize', (event) => { selectPositionUpdate(); });
+                     });"
+                                 @keydown.escape="if(selectOpen){ selectOpen=false; }"
+                                 @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.up="if(selectOpen){ selectableItemActivePrevious(); } else { selectOpen=true; } event.preventDefault();"
+                                 @keydown.enter="selectedItem=selectableItemActive; selectOpen=false;"
+                                 @keydown="selectKeydown($event);"
+                                 class="relative w-64">
+
+                                <button x-ref="selectButton" @click="selectOpen=!selectOpen"
+                                        :class="{ 'focus:ring-[#7D0909]' : !selectOpen }"
+                                        class="relative min-h-[38px] flex items-center justify-normal gap-2 w-full text-[#7D0909] py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-[#7D0909] focus:outline-none  text-sm">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
+                                         class="w-6 h-6 text">
+                                        <path d="M0 71.5C0 49.7 17.7 32 39.5 32H472.5C494.3 32 512 49.7 512 71.5c0 9.2-3.2 18.1-9.1 25.2L320 317.8V446.1c0 18.7-15.2 33.9-33.9 33.9c-7.5 0-14.8-2.5-20.8-7.1l-61-47.4c-7.8-6.1-12.4-15.4-12.4-25.3V317.8L9.1 96.7C3.2 89.6 0 80.7 0 71.5zM39.5 64c-4.2 0-7.5 3.4-7.5 7.5c0 1.8 .6 3.4 1.7 4.8L220.3 301.8c2.4 2.9 3.7 6.5 3.7 10.2v88.2l61 47.4c.3 .3 .7 .4 1.1 .4c1 0 1.9-.8 1.9-1.9V312c0-3.7 1.3-7.3 3.7-10.2L478.3 76.3c1.1-1.3 1.7-3 1.7-4.8c0-4.2-3.4-7.5-7.5-7.5H39.5z"/>
+                                    </svg>
+
+                                    <span x-text="selectedItem ? selectedItem.title : 'Sort By'" class="truncate">Sort By</span>
+                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"
+                                 aria-hidden="true" class="w-5 h-5 text-[#7D0909]">
+                                <path d="M 44.982422 12.970703 A 2.0002 2.0002 0 0 0 43.585938 13.585938 L 25 32.171875 L 6.4140625 13.585938 A 2.0002 2.0002 0 0 0 4.9785156 12.980469 A 2.0002 2.0002 0 0 0 3.5859375 16.414062 L 23.585938 36.414062 A 2.0002 2.0002 0 0 0 26.414062 36.414062 L 46.414062 16.414062 A 2.0002 2.0002 0 0 0 44.982422 12.970703 z"/>
+                            </svg>
+                        </span>
+                                </button>
+
+                                <ul x-show="selectOpen"
+                                    x-ref="selectableItemsList"
+                                    @click.away="selectOpen = false"
+                                    x-transition:enter="transition ease-out duration-50"
+                                    x-transition:enter-start="opacity-0 -translate-y-1"
+                                    x-transition:enter-end="opacity-100"
+                                    :class="{ 'bottom-0 mb-10' : selectDropdownPosition === 'top', 'top-0 mt-10' : selectDropdownPosition === 'bottom' }"
+                                    class="absolute w-full mt-1 overflow-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-[#7D0909] focus:outline-none"
+                                    x-cloak>
+
+                                    <template x-for="item in selectableItems" :key="item.value">
+                                        <li @click="selectedItem=item; selectedEventItem=item.title; selectOpen=false; $refs.selectButton.focus();"
+                                            :id="item.value + '-' + selectId"
+                                            :data-disabled="item.disabled"
+                                            :class="{ 'bg-[#7D0909] text-white' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
+                                            @mousemove="selectableItemActive=item"
+                                            class="relative flex items-center h-full py-2 pl-8 text-[#7D0909] cursor-default select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
+                                            <span class="block font-medium truncate" x-text="item.title"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8 z-0">
+                        <h2 class="sr-only">Products</h2>
+
+                        <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+
+
+                            <a href="../Admin_HTML_TSC/Reports/Page1.4.1.html">
+                                <div class="group flex flex-col overflow-hidden border-2 border-red-950 bg-white event1">
+                                    <div class="aspect-video bg-gray-200 sm:aspect-none sm:h-48 border-b-2 border-b-red-950">
+                                        <img src="../Image/cover.png"
+                                             alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
+                                             class="h-full w-full object-cover object-center sm:h-full sm:w-full">
+                                    </div>
+                                    <div class="flex flex-1 flex-col justify-center items-center space-y-2 p-4">
+                                        <h3 class="text-sm font-medium text-gray-900">
+                                            <span aria-hidden="true" class="inset-0">Paskuhan 2023</span>
+
+                                        </h3>
+                                        <div class="flex flex-1 flex-col justify-center items-center">
+                                            <p class="text-sm italic text-gray-500">December 12th, 2023 at 5:00 PM</p>
+                                            <p class="text-base font-medium text-gray-900">TSC</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+
+                            <!-- More Events... -->
+                        </div>
+                    </div>
 
                 </div>
+
             </div>
 
         </main>

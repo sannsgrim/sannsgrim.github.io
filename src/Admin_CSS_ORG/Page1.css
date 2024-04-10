@@ -117,8 +117,122 @@ img {
 }
 
 .pMake{
-  padding-top: 45px;
-  padding-right: 80px;
+    padding-top: 45px;
+    padding-right: 80px;
 }
 
+
+.event1{
+    transition: scale 0.1s;
+
+}
+
+.event1:hover{
+    scale: 1.1;
+}
+
+
+
+.overview{
+    background-color: white;
+    height: auto;
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+
+.attendance{
+    width: 100%;
+    margin: 0;
+}
+
+#title{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+
+.section{
+    background-color: #cacaca;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+.sections{
+    background-color: #cacaca;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    border: 1px solid #000;
+}
+
+.section1{
+    background-color: #cacaca;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    border: 1px solid black;
+}
+
+.department{
+    border-right:1px solid #000;
+    width:100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding-left: 1%;
+}
+
+
+.total-students{
+    border-right: 1px solid #000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+    font-style: italic;
+}
+
+
+.attended{
+    border-right: 1px solid #000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+    font-style: italic;
+}
+
+
+
+.viewall{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-image: url('view.png');
+    background-repeat: no-repeat;
+    background-size: 3vh;
+    background-position: center;
+    background-position-x: 95%;
+}
+
+
+
+.viewall a{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding-top: 2%;
+    height: 90%;
+    width: 10vw;
+    font-size: 1em;
+    background-color: transparent;
+    cursor: pointer;
+}
 
