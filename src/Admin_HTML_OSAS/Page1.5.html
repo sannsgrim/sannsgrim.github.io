@@ -48,7 +48,7 @@
 
 <div x-data="{ showMobile: false }">
 
-    <div x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+    <div x-cloak x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
 
         <div x-show="showMobile"
              x-transition:enter="transition-opacity ease-linear duration-300"
