@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page - TSC: Accounts</title>
-    <link rel="stylesheet" href="../Admin_CSS_TSC/Page1.css">
+    <title>Admin Page - ORG: Accounts</title>
+    <link rel="stylesheet" href="../Admin_CSS_ORG/Page1.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
@@ -48,7 +48,7 @@
 
 <div x-data="{ showMobile: false }">
 
-    <div x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+    <div x-cloak x-show="showMobile" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
 
         <div x-show="showMobile"
              x-transition:enter="transition-opacity ease-linear duration-300"
@@ -93,7 +93,7 @@
 
                 <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg px-6 py-4">
                     <div class="flex h-20 shrink-0 gap-x-3 items-center">
-                        <a href="../Admin_HTML_TSC/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 items-center">
+                        <a href="../Admin_HTML_ORG/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 items-center">
                             <img class="w-auto h-[75px]" src="../Image/Logo.png" alt="Your Company">
                             <h2 class="LogoText">UEAS</h2>
                         </a>
@@ -104,7 +104,7 @@
                             <li>
                                 <ul role="list" class="-mx-2 space-y-1">
                                     <li>
-                                        <a href="../Admin_HTML_TSC/Page1.1.html"
+                                        <a href="../Admin_HTML_ORG/Page1.1.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -115,7 +115,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Admin_HTML_TSC/Page1.2.0.html"
+                                        <a href="../Admin_HTML_ORG/Page1.2.0.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
@@ -126,7 +126,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Admin_HTML_TSC/Page1.3.html"
+                                        <a href="../Admin_HTML_ORG/Page1.3.html"
                                            class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -137,8 +137,9 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../Admin_HTML_TSC/Page1.4.html"
-                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
+                                        <a href="../Admin_HTML_ORG/Page1.4.html"
+                                           class="text-white hover:text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                            <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
                                                  aria-hidden="true">
                                                 <path d="M24.707,8.793l-6.5-6.5C18.019,2.105,17.765,2,17.5,2H7C5.895,2,5,2.895,5,4v22c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2 V9.5C25,9.235,24.895,8.981,24.707,8.793z M21.707,16.707l-4,4C17.512,20.902,17.256,21,17,21s-0.512-0.098-0.707-0.293L13,17.414 l-3.293,3.293c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l4-4c0.391-0.391,1.023-0.391,1.414,0L17,18.586l3.293-3.293 c0.391-0.391,1.023-0.391,1.414,0S22.098,16.316,21.707,16.707z M18,10c-0.552,0-1-0.448-1-1V3.904L23.096,10H18z"/>
@@ -148,7 +149,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="../Admin_HTML_TSC/Page1.5.html"
+                                        <a href="../Admin_HTML_ORG/Page1.5.html"
                                            class="text-[#DFA91D] group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                             <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -172,7 +173,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex grow flex-col w-full gap-y-5 overflow-y-auto sideBarBg py-4">
             <div class="flex h-20 shrink-0 gap-x-3 items-center">
-                <a href="../Admin_HTML_TSC/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
+                <a href="../Admin_HTML_ORG/Page1.1.html" class="flex h-20 shrink-0 gap-x-3 px-6 items-center">
                     <img class="w-auto h-[97px] " src="../Image/Logo.png" alt="Your Company">
                     <h2 class="LogoText">UEAS</h2>
                 </a>
@@ -182,7 +183,7 @@
                     <li>
                         <ul role="list" class="flex flex-col items-start">
                             <li class="w-full">
-                                <a href="../Admin_HTML_TSC/Page1.1.html"
+                                <a href="../Admin_HTML_ORG/Page1.1.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
@@ -193,7 +194,7 @@
                             </li>
 
                             <li class="w-full">
-                                <a href="../Admin_HTML_TSC/Page1.2.0.html"
+                                <a href="../Admin_HTML_ORG/Page1.2.0.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true">
@@ -203,7 +204,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="../Admin_HTML_TSC/Page1.3.html"
+                                <a href="../Admin_HTML_ORG/Page1.3.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
@@ -213,7 +214,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="../Admin_HTML_TSC/Page1.4.html"
+                                <a href="../Admin_HTML_ORG/Page1.4.html"
                                    class="hover:text-black hover:bg-[#d7c9c9] text-[#DFA91D] group flex items-center gap-x-3 p-4 text-sm leading-6 border-b-2 border-b-[#d7c9c9] font-semibold w-full bg-[#7D0909] pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true">
@@ -223,7 +224,7 @@
                                 </a>
                             </li>
                             <li class="w-full">
-                                <a href="../Admin_HTML_TSC/Page1.5.html"
+                                <a href="../Admin_HTML_ORG/Page1.5.html"
                                    class="text-black group flex items-center gap-x-3 p-4 text-sm leading-6 font-semibold w-full bgSide pl-10">
                                     <svg class="h-10 w-10 shrink-0 text-[#DFA91D]" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
@@ -370,19 +371,172 @@
         <main class="py-3 overscroll-y-none">
             <div class="px-4 sm:px-6 lg:px-8 flex flex-col gap-2">
                 <div class="flex flex-row items-center justify-normal gap-2 w-full bg-white p-5 shadow-lg">
-                    <img src="../Image/tsc.png" alt="Logo" class="w-[98px] h-[98px]">
+                    <img src="../Image/Logo.png" alt="Logo" class="w-[98px] h-[98px]">
                     <div>
-                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Counsil</p>
-                        <p style="font-style: italic;">tagumstudentcouncil.archive@gmail.com</p>
+                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Society of Information Technology Students</p>
+                        <p style="font-style: italic;">sits_tagum-mabini@usep.edu.ph</p>
                     </div>
                 </div>
 
 
-                <div class="bg-white pb-4 px-4 pt-10">
+                <div class="bg-white">
+                    <div class="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                        <!-- Event Details -->
+                        <div class="lg:max-w-2xl lg:self-start">
 
-                    <!--Contents Here-->
-                    <h1>Contents Here</h1>
+                            <div>
+                                <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Edit
+                                    Account</h1>
+                            </div>
+                        </div>
 
+                        <!-- Event Details -->
+                        <div class="mt-2 lg:col-start-1 lg:row-start-2 lg:max-w-2xl lg:self-normal">
+                            <form>
+                                <div>
+
+                                    <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                                        <div class="col-span-full">
+                                            <label for="EventTitle"
+                                                   class="block text-sm font-medium leading-6 text-gray-900">Department
+                                                Name</label>
+                                            <div class="mt-2">
+                                                <input type="text" name="EventTitle" id="EventTitle"
+                                                       autocomplete="given-name"
+                                                       class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-span-full">
+                                            <label for="InCharge"
+                                                   class="block text-sm font-medium leading-6 text-gray-900">E-mail</label>
+                                            <div class="mt-2">
+                                                <input type="email" name="InCharge" id="InCharge"
+                                                       autocomplete="street-address"
+                                                       class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <!-- Event Sanction -->
+                        <div class="mt-10 responsive lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-start lg:pl-10"
+                             x-data="{ modalOpen: false }">
+                            <div class="mt-10 pt-6 flex flex-col justify-center items-center">
+
+                            </div>
+                            <div class="mt-10 grid grid-cols-1 gap-x-2 gap-y-8 sm:grid-cols-6">
+
+                            </div>
+                            <div class="mt-10 grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 flex justify-center">
+                                <div class="col-span-3 flex justify-center" @keydown.escape.window="modalOpen = false;"
+                                     @keydown.enter="modalOpen = modalCondition()"
+                                     :class="{ 'z-40': modalOpen}">
+                                    <button type="button" @click="modalOpen = modalCondition()"
+                                            class="inline-flex items-center gap-x-2 rounded-md bg-red-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                             fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                                            <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                                        </svg>
+                                        Update Account
+                                    </button>
+                                    <template x-teleport="body">
+
+
+                                        <div x-show="modalOpen"
+                                             class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+                                             x-cloak>
+                                            <div x-show="modalOpen"
+                                                 x-transition:enter="ease-out duration-300"
+                                                 x-transition:enter-start="opacity-0"
+                                                 x-transition:enter-end="opacity-100"
+                                                 x-transition:leave="ease-in duration-300"
+                                                 x-transition:leave-start="opacity-100"
+                                                 x-transition:leave-end="opacity-0"
+                                                 @click="modalOpen=false"
+                                                 class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
+                                            <div x-show="modalOpen"
+                                                 x-trap.inert.noscroll="modalOpen"
+                                                 x-transition:enter="ease-out duration-300"
+                                                 x-transition:enter-start="opacity-0 -translate-y-2 sm:scale-95"
+                                                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                                 x-transition:leave="ease-in duration-200"
+                                                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                                 x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
+                                                 class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all
+                                             sm:my-8 sm:w-full sm:max-w-md sm:p-6">
+
+                                                <!--Modal-->
+                                                <div class="flex flex-col items-center justify-between pt-1">
+                                                    <div class="mx-auto flex flex-col h-16 w-16 items-center justify-center rounded-full"
+                                                         id="SVG">
+                                                        <svg fill="none" height="154px" viewBox="0 0 24 24"
+                                                             width="154px"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                               stroke-linejoin="round"></g>
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <path d="M22 11.0857V12.0057C21.9988 14.1621 21.3005 16.2604 20.0093 17.9875C18.7182 19.7147 16.9033 20.9782 14.8354 21.5896C12.7674 22.201 10.5573 22.1276 8.53447 21.3803C6.51168 20.633 4.78465 19.2518 3.61096 17.4428C2.43727 15.6338 1.87979 13.4938 2.02168 11.342C2.16356 9.19029 2.99721 7.14205 4.39828 5.5028C5.79935 3.86354 7.69279 2.72111 9.79619 2.24587C11.8996 1.77063 14.1003 1.98806 16.07 2.86572M22 4L12 14.01L9 11.01"
+                                                                      stroke="#27AE60" stroke-width="2"
+                                                                      stroke-linecap="round"
+                                                                      stroke-linejoin="round"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </div>
+                                                    <h2 class="text-2xl font-semibold leading-6 text-green-600"
+                                                        id="modal-top-titleSuccess">SUCCESS</h2>
+                                                    <h2 class="text-2xl font-semibold leading-6 text-red-700"
+                                                        id="modal-top-titleFailed">ERROR!</h2>
+
+                                                </div>
+                                                <div class="relative w-auto pb-3">
+                                                    <div class="mt-2 text-center sm:mt-1">
+                                                        <h3 class="text-base font-semibold leading-6 text-gray-700"
+                                                            id="modal-title">Account Updated Successfully</h3>
+                                                        <div class="mt-2">
+                                                            <p class="text-sm text-center text-gray-500"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-5 sm:mt-6 flex justify-center"
+                                                     id="modal-buttonContainerSuccess">
+                                                    <a href="../Admin_HTML_ORG/Page1.5.html" @click="modalOpen=false"
+                                                       id="modal-buttonSuccess"
+                                                       type="button"
+                                                       class="flex w-64 justify-center items-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Done</a>
+                                                </div>
+                                                <div class="mt-5 sm:mt-6 flex justify-center"
+                                                     id="modal-buttonContainerFailed">
+                                                    <button @click="modalOpen=false" id="modal-buttonFailed"
+                                                            type="button"
+                                                            class="flex w-64 justify-center items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                                                        Okay
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+
+                                </div>
+                                <div class="col-span-3 flex justify-center">
+                                    <a href="../Admin_HTML_ORG/Page1.5.html" type="button"
+                                       class="inline-flex items-center gap-x-2 rounded-md bg-red-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                                             fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                        </svg>
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -390,6 +544,63 @@
     </div>
 </div>
 
+
+<script>
+    const EventTitle = document.getElementById('EventTitle');
+
+    const InCharge = document.getElementById('InCharge');
+
+    function checkEmailFormat() {
+        const email = InCharge.value;
+        const emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return email.match(emailFormat);
+    }
+
+    function checkFillOutAll() {
+        return EventTitle.value === '' || InCharge.value === '';
+    }
+
+    function modalCondition() {
+        const success = document.getElementById('modal-buttonContainerSuccess');
+        const failed = document.getElementById('modal-buttonContainerFailed');
+        const successH2 = document.getElementById('modal-top-titleSuccess');
+        const failedH2 = document.getElementById('modal-top-titleFailed');
+        const failed_btn = document.getElementById('modal-buttonFailed');
+
+        if (!checkFillOutAll() && checkEmailFormat()) {
+            document.getElementById('modal-top-titleSuccess').textContent = 'SUCCESS';
+            document.getElementById('modal-title').textContent = 'Account Updated Successfully';
+            document.getElementById('SVG').innerHTML = '<svg fill="none" height="154px" viewBox="0 0 24 24" width="154px" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22 11.0857V12.0057C21.9988 14.1621 21.3005 16.2604 20.0093 17.9875C18.7182 19.7147 16.9033 20.9782 14.8354 21.5896C12.7674 22.201 10.5573 22.1276 8.53447 21.3803C6.51168 20.633 4.78465 19.2518 3.61096 17.4428C2.43727 15.6338 1.87979 13.4938 2.02168 11.342C2.16356 9.19029 2.99721 7.14205 4.39828 5.5028C5.79935 3.86354 7.69279 2.72111 9.79619 2.24587C11.8996 1.77063 14.1003 1.98806 16.07 2.86572M22 4L12 14.01L9 11.01" stroke="#27AE60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>';
+            success.style.display = 'flex';
+            successH2.style.display = 'flex';
+            failed.style.display = 'none';
+            failedH2.style.display = 'none';
+            return this.modalOpen = true;
+        } else if (checkFillOutAll()) {
+            document.getElementById('modal-top-titleFailed').textContent = 'ERROR!';
+            document.getElementById('modal-title').textContent = 'Please fill out all the fields.';
+            document.getElementById('SVG').innerHTML = '<svg fill="#F21E1E" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155px" height="155px" viewBox="-41.36 -41.36 188.78 188.78" xml:space="preserve" stroke="#F21E1E" stroke-width="0.00106059" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M90.546,15.518C69.858-5.172,36.199-5.172,15.515,15.513C-5.173,36.198-5.171,69.858,15.517,90.547 c20.682,20.684,54.341,20.684,75.027-0.004C111.23,69.858,111.229,36.2,90.546,15.518z M84.757,84.758 c-17.494,17.494-45.96,17.496-63.455,0.002c-17.498-17.497-17.496-45.966,0-63.46C38.796,3.807,67.261,3.805,84.759,21.302 C102.253,38.796,102.251,67.265,84.757,84.758z M77.017,74.001c0.658,1.521-0.042,3.286-1.562,3.943 c-1.521,0.66-3.286-0.042-3.944-1.562c-2.893-6.689-9.73-11.012-17.421-11.012c-7.868,0-14.747,4.319-17.522,11.004 c-0.479,1.154-1.596,1.851-2.771,1.851c-0.384,0-0.773-0.074-1.15-0.23c-1.53-0.636-2.255-2.392-1.62-3.921 c3.71-8.932,12.764-14.703,23.063-14.703C64.174,59.371,73.174,65.113,77.017,74.001z M33.24,38.671 c0-3.424,2.777-6.201,6.201-6.201c3.423,0,6.2,2.776,6.2,6.201c0,3.426-2.777,6.202-6.2,6.202 C36.017,44.873,33.24,42.097,33.24,38.671z M61.357,38.671c0-3.424,2.779-6.201,6.203-6.201c3.423,0,6.2,2.776,6.2,6.201 c0,3.426-2.776,6.202-6.2,6.202S61.357,42.097,61.357,38.671z"></path> </g> </g></svg>';
+            failed_btn.textContent = 'Try Again';
+            success.style.display = 'none';
+            successH2.style.display = 'none';
+            failed.style.display = 'flex';
+            failedH2.style.display = 'flex';
+            return this.modalOpen = true;
+        }
+        else if (!checkEmailFormat()) {
+            document.getElementById('modal-top-titleFailed').textContent = 'ERROR!';
+            document.getElementById('modal-title').textContent = 'Invalid Email Format.';
+            document.getElementById('SVG').innerHTML = '<svg fill="#F21E1E" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155px" height="155px" viewBox="-41.36 -41.36 188.78 188.78" xml:space="preserve" stroke="#F21E1E" stroke-width="0.00106059" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M90.546,15.518C69.858-5.172,36.199-5.172,15.515,15.513C-5.173,36.198-5.171,69.858,15.517,90.547 c20.682,20.684,54.341,20.684,75.027-0.004C111.23,69.858,111.229,36.2,90.546,15.518z M84.757,84.758 c-17.494,17.494-45.96,17.496-63.455,0.002c-17.498-17.497-17.496-45.966,0-63.46C38.796,3.807,67.261,3.805,84.759,21.302 C102.253,38.796,102.251,67.265,84.757,84.758z M77.017,74.001c0.658,1.521-0.042,3.286-1.562,3.943 c-1.521,0.66-3.286-0.042-3.944-1.562c-2.893-6.689-9.73-11.012-17.421-11.012c-7.868,0-14.747,4.319-17.522,11.004 c-0.479,1.154-1.596,1.851-2.771,1.851c-0.384,0-0.773-0.074-1.15-0.23c-1.53-0.636-2.255-2.392-1.62-3.921 c3.71-8.932,12.764-14.703,23.063-14.703C64.174,59.371,73.174,65.113,77.017,74.001z M33.24,38.671 c0-3.424,2.777-6.201,6.201-6.201c3.423,0,6.2,2.776,6.2,6.201c0,3.426-2.777,6.202-6.2,6.202 C36.017,44.873,33.24,42.097,33.24,38.671z M61.357,38.671c0-3.424,2.779-6.201,6.203-6.201c3.423,0,6.2,2.776,6.2,6.201 c0,3.426-2.776,6.202-6.2,6.202S61.357,42.097,61.357,38.671z"></path> </g> </g></svg>';
+            failed_btn.textContent = 'Try Again';
+            success.style.display = 'none';
+            successH2.style.display = 'none';
+            failed.style.display = 'flex';
+            failedH2.style.display = 'flex';
+            return this.modalOpen = true;
+        }
+    }
+
+</script>
 
 </body>
 </html>
