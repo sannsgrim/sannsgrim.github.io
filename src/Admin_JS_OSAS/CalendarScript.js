@@ -2,6 +2,7 @@ const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'Ju
 
 
 function app() {
+
     return {
         month: '',
         year: '',
@@ -61,18 +62,7 @@ function app() {
 
         openEventModal: false,
 
-        getStatus() {
-            const currentDate = new Date();
-            const holidayStart = this.event_timeS;
-            const holidayEnd = this.event_timeE;
 
-
-            if (currentDate >= holidayStart && currentDate <= holidayEnd) {
-                return 'Holiday Season';
-            } else {
-                return 'Normal Day';
-            }
-        },
 
 
         initDate() {
