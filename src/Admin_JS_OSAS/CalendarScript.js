@@ -45,7 +45,6 @@ function app() {
 
         sortEvents: function() {
             this.events.sort(function(a, b) {
-                // Convert the event_date strings back to Date objects for comparison
                 var dateA = new Date(a.event_date);
                 var dateB = new Date(b.event_date);
                 return dateA - dateB;
