@@ -347,7 +347,7 @@
                                          aria-hidden="true">
                                         <path d="M320 128a96 96 0 1 0 -192 0 96 96 0 1 0 192 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM32 480H416c-1.2-79.7-66.2-144-146.3-144H178.3c-80 0-145 64.3-146.3 144zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
                                     </svg>
-                                    Office of Student Affairs and Services
+                                    Tagum Student Council
                                 </a>
                                 <a href="../../Index/index.html"
                                    class="text-gray-700 group flex items-center px-4 py-2 text-sm"
@@ -373,7 +373,7 @@
                 <div class="flex flex-row items-center justify-normal gap-2 w-full bg-white p-5 shadow-lg">
                     <img src="../../Image/tsc.png" alt="Logo" class="w-[98px] h-[98px]">
                     <div>
-                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Counsil</p>
+                        <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Tagum Student Council</p>
                         <p style="font-style: italic;">tagumstudentcouncil.archive@gmail.com</p>
                     </div>
                 </div>
@@ -385,179 +385,6 @@
                             <p style="font-weight: bold; padding-bottom: 3%; font-size: 1.5em;">Sanction</p>
                         </div>
                         <div class="flex flex-col lg:flex-row sm:flex-row gap-2">
-                            <div x-data="{
-                selectOpen: false,
-                selectedItem: '',
-                selectableItems: [
-                {
-                title: 'SITS',
-                value: 'sits',
-                disabled: false
-                },
-                {
-                title: 'SABES',
-                value: 'sabes',
-                disabled: false
-                },
-                {
-                title: 'AFSET',
-                value: 'afset',
-                disabled: false
-                },
-                {
-                title: 'TSC',
-                value: 'tsc',
-                disabled: false
-                },
-                {
-                title: 'OSAS',
-                value: 'osas',
-                disabled: false
-                },
-                {
-                title: 'All Org',
-                value: 'all',
-                disabled: false
-                }
-                ],
-                selectableItemActive: null,
-                selectId: $id('select'),
-                selectKeydownValue: '',
-                selectKeydownTimeout: 1000,
-                selectKeydownClearTimeout: null,
-                selectDropdownPosition: 'bottom',
-                selectableItemIsActive(item) {
-                return this.selectableItemActive && this.selectableItemActive.value===item.value;
-                },
-                selectableItemActiveNext(){
-                let index = this.selectableItems.indexOf(this.selectableItemActive);
-                if(index < this.selectableItems.length-1){
-                this.selectableItemActive = this.selectableItems[index+1];
-                this.selectScrollToActiveItem();
-                }
-                },
-                selectableItemActivePrevious(){
-                let index = this.selectableItems.indexOf(this.selectableItemActive);
-                if(index > 0){
-                this.selectableItemActive = this.selectableItems[index-1];
-                this.selectScrollToActiveItem();
-                }
-                },
-                selectScrollToActiveItem(){
-                var activeElement;var newScrollPos;if(this.selectableItemActive){
-                activeElement = document.getElementById(this.selectableItemActive.value + '-' + this.selectId)
-                newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.selectableItemsList.offsetHeight;
-                if(newScrollPos > 0){
-                this.$refs.selectableItemsList.scrollTop=newScrollPos;
-                    } else {
-                    this.$refs.selectableItemsList.scrollTop=0;
-                    }
-                    }
-                    },
-                    selectKeydown(event){
-                    var selectedItemBestMatch;if (event.keyCode >= 65 && event.keyCode <= 90) {
-
-                        this.selectKeydownValue += event.key;
-                        selectedItemBestMatch = this.selectItemsFindBestMatch();
-                        if(selectedItemBestMatch){
-                        if(this.selectOpen){
-                        this.selectableItemActive = selectedItemBestMatch;
-                        this.selectScrollToActiveItem();
-                        } else {
-                        this.selectedItem = this.selectableItemActive = selectedItemBestMatch;
-                        }
-                        }
-
-                        if(this.selectKeydownValue !== ''){
-                        clearTimeout(this.selectKeydownClearTimeout);
-                        this.selectKeydownClearTimeout = setTimeout(() => {this.selectKeydownValue = '';
-                        }, this.selectKeydownTimeout);
-                        }
-                        }
-                        },
-
-      selectItemsFindBestMatch(){
-      var typedValue = this.selectKeydownValue.toLowerCase();
-      var bestMatch = null;
-      var bestMatchIndex = -1;
-      for (var i = 0; i < this.selectableItems.length; i++) {
-          var title = this.selectableItems[i].title.toLowerCase();
-          var index = title.indexOf(typedValue);
-          if (index > -1 && (bestMatchIndex === -1 || index < bestMatchIndex) && !this.selectableItems[i].disabled) {
-              bestMatch = this.selectableItems[i];
-              bestMatchIndex = index;
-          }
-      }
-      return bestMatch;
-      },
-       selectPositionUpdate(){
-       var selectDropdownBottomPos = this.$refs.selectButton.getBoundingClientRect().top + this.$refs.selectButton.offsetHeight + parseInt(window.getComputedStyle(this.$refs.selectableItemsList).maxHeight);
-       if(window.innerHeight < selectDropdownBottomPos){
-           this.selectDropdownPosition = 'top';
-       } else {
-           this.selectDropdownPosition = 'bottom';
-       }
-       }
-}"
-                                 x-init="
-                                 $watch('selectOpen',
-                                 function(){if(!selectedItem){
-                                 selectableItemActive=selectableItems[0];
-                                 } else {
-                                 selectableItemActive=selectedItem;
-                                 }
-                                 setTimeout(function(){
-                                 selectScrollToActiveItem();
-                                 }, 10);
-                                 selectPositionUpdate();
-                                 window.addEventListener('resize', (event) => { selectPositionUpdate(); });
-                                 });"
-                                 @keydown.escape="if(selectOpen){ selectOpen=false; }"
-                                 @keydown.down="if(selectOpen){ selectableItemActiveNext(); } else { selectOpen=true; } event.preventDefault();"
-                                 @keydown.up="if(selectOpen){ selectableItemActivePrevious(); } else { selectOpen=true; } event.preventDefault();"
-                                 @keydown.enter="selectedItem=selectableItemActive; selectOpen=false;"
-                                 @keydown="selectKeydown($event);"
-                                 class="relative w-64">
-
-                                <button x-ref="selectButton" @click="selectOpen=!selectOpen"
-                                        :class="{ 'focus:ring-[#7D0909]' : !selectOpen }"
-                                        class="relative min-h-[38px] flex items-center justify-normal gap-2 w-full text-[#7D0909] py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-[#7D0909] focus:outline-none text-sm">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"
-                                         class="w-6 h-6 text">
-                                        <path d="M0 71.5C0 49.7 17.7 32 39.5 32H472.5C494.3 32 512 49.7 512 71.5c0 9.2-3.2 18.1-9.1 25.2L320 317.8V446.1c0 18.7-15.2 33.9-33.9 33.9c-7.5 0-14.8-2.5-20.8-7.1l-61-47.4c-7.8-6.1-12.4-15.4-12.4-25.3V317.8L9.1 96.7C3.2 89.6 0 80.7 0 71.5zM39.5 64c-4.2 0-7.5 3.4-7.5 7.5c0 1.8 .6 3.4 1.7 4.8L220.3 301.8c2.4 2.9 3.7 6.5 3.7 10.2v88.2l61 47.4c.3 .3 .7 .4 1.1 .4c1 0 1.9-.8 1.9-1.9V312c0-3.7 1.3-7.3 3.7-10.2L478.3 76.3c1.1-1.3 1.7-3 1.7-4.8c0-4.2-3.4-7.5-7.5-7.5H39.5z"/>
-                                    </svg>
-                                    <span x-text="selectedItem ? selectedItem.title : 'Sort By'" class="truncate">Sort By</span>
-                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"
-                                             aria-hidden="true" class="w-5 h-5 text-[#7D0909]">
-                                            <path d="M 44.982422 12.970703 A 2.0002 2.0002 0 0 0 43.585938 13.585938 L 25 32.171875 L 6.4140625 13.585938 A 2.0002 2.0002 0 0 0 4.9785156 12.980469 A 2.0002 2.0002 0 0 0 3.5859375 16.414062 L 23.585938 36.414062 A 2.0002 2.0002 0 0 0 26.414062 36.414062 L 46.414062 16.414062 A 2.0002 2.0002 0 0 0 44.982422 12.970703 z"/>
-                                        </svg>
-                                    </span>
-                                </button>
-
-                                <ul x-show="selectOpen"
-                                    x-ref="selectableItemsList"
-                                    @click.away="selectOpen = false"
-                                    x-transition:enter="transition ease-out duration-50"
-                                    x-transition:enter-start="opacity-0 -translate-y-1"
-                                    x-transition:enter-end="opacity-100"
-                                    :class="{ 'bottom-0 mb-10' : selectDropdownPosition === 'top', 'top-0 mt-10' : selectDropdownPosition === 'bottom' }"
-                                    class="absolute w-full mt-1 overflow-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-[#7D0909] focus:outline-none"
-                                    x-cloak>
-
-                                    <template x-for="item in selectableItems" :key="item.value">
-                                        <li @click="selectedItem=item; selectedEventItem=item.title; selectOpen=false; $refs.selectButton.focus();"
-                                            :id="item.value + '-' + selectId"
-                                            :data-disabled="item.disabled"
-                                            :class="{ 'bg-[#7D0909] text-white' : selectableItemIsActive(item), '' : !selectableItemIsActive(item) }"
-                                            @mousemove="selectableItemActive=item"
-                                            class="relative flex items-center h-full py-2 pl-8 text-[#7D0909] cursor-default select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
-                                            <span class="block font-medium truncate" x-text="item.title"></span>
-                                        </li>
-                                    </template>
-                                </ul>
-                            </div>
 
                         </div>
                     </div>
@@ -598,16 +425,38 @@
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">
                                                             2023-00673
                                                         </td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-red-800">
-                                                            <a href=""
-                                                               class="flex flex-row gap-4 items-center text-red-800">
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-red-800" x-data="{ openEditPopup: false }">
+                                                            <button @click="openEditPopup = true"
+                                                                    class="flex flex-row gap-4 items-center text-red-800">
                                                                 No Attendance
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                      viewBox="0 0 512 512" class="h-4"
                                                                      fill="currentColor">
                                                                     <path d="M454.6 45.3l12.1 12.1c12.5 12.5 12.5 32.8 0 45.3L440 129.4 382.6 72l26.7-26.7c12.5-12.5 32.8-12.5 45.3 0zM189 265.6l171-171L417.4 152l-171 171c-4.2 4.2-9.6 7.2-15.4 8.6l-65.6 15.1L180.5 281c1.3-5.8 4.3-11.2 8.6-15.4zm197.7-243L166.4 243c-8.5 8.5-14.4 19.2-17.1 30.9l-20.9 90.6c-1.2 5.4 .4 11 4.3 14.9s9.5 5.5 14.9 4.3l90.6-20.9c11.7-2.7 22.4-8.6 30.9-17.1L489.4 125.3c25-25 25-65.5 0-90.5L477.3 22.6c-25-25-65.5-25-90.5 0zM80 64C35.8 64 0 99.8 0 144V432c0 44.2 35.8 80 80 80H368c44.2 0 80-35.8 80-80V304c0-8.8-7.2-16-16-16s-16 7.2-16 16V432c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48H208c8.8 0 16-7.2 16-16s-7.2-16-16-16H80z"/>
                                                                 </svg>
-                                                            </a>
+                                                            </button>
+                                                            <div x-show="openEditPopup" x-cloak
+                                                                 x-transition:enter="transition ease-out duration-100"
+                                                                 x-transition:enter-start="transform opacity-0 scale-95"
+                                                                 x-transition:enter-end="transform opacity-100 scale-100"
+                                                                 x-transition:leave="transition ease-in duration-75"
+                                                                 x-transition:leave-start="transform opacity-100 scale-100"
+                                                                 x-transition:leave-end="transform opacity-0 scale-95"
+                                                                 @click.away="openEditPopup = false"
+                                                                 class="absolute right-[345px] z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                                 role="menu" aria-orientation="vertical"
+                                                                 aria-labelledby="menu-0-button" tabindex="-1">
+
+                                                                <a href="javascript:void(0)"
+                                                                   class="text-gray-700 block px-4 py-2 text-sm rounded-tl-md rounded-tr-md hover:bg-red-800 hover:text-white"
+                                                                   role="menuitem" tabindex="-1" id="menu-4-item-1">
+                                                                    Mark as Present                                                                </a>
+                                                                <a href="javascript:void(0)"
+                                                                   @click="openEditPopup = false"
+                                                                   class="text-gray-700 block px-4 py-2 text-sm rounded-bl-md rounded-br-md hover:bg-red-800 hover:text-white"
+                                                                   role="menuitem" tabindex="-1" id="menu-4-item-2">Cancel
+                                                                </a>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -617,16 +466,38 @@
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">
                                                             2023-00673
                                                         </td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-red-800">
-                                                            <a href=""
-                                                               class="flex flex-row gap-4 items-center text-red-800">
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-red-800" x-data="{ openEditPopup: false }">
+                                                            <button @click="openEditPopup = true"
+                                                                    class="flex flex-row gap-4 items-center text-red-800">
                                                                 No Attendance
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                      viewBox="0 0 512 512" class="h-4"
                                                                      fill="currentColor">
                                                                     <path d="M454.6 45.3l12.1 12.1c12.5 12.5 12.5 32.8 0 45.3L440 129.4 382.6 72l26.7-26.7c12.5-12.5 32.8-12.5 45.3 0zM189 265.6l171-171L417.4 152l-171 171c-4.2 4.2-9.6 7.2-15.4 8.6l-65.6 15.1L180.5 281c1.3-5.8 4.3-11.2 8.6-15.4zm197.7-243L166.4 243c-8.5 8.5-14.4 19.2-17.1 30.9l-20.9 90.6c-1.2 5.4 .4 11 4.3 14.9s9.5 5.5 14.9 4.3l90.6-20.9c11.7-2.7 22.4-8.6 30.9-17.1L489.4 125.3c25-25 25-65.5 0-90.5L477.3 22.6c-25-25-65.5-25-90.5 0zM80 64C35.8 64 0 99.8 0 144V432c0 44.2 35.8 80 80 80H368c44.2 0 80-35.8 80-80V304c0-8.8-7.2-16-16-16s-16 7.2-16 16V432c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48H208c8.8 0 16-7.2 16-16s-7.2-16-16-16H80z"/>
                                                                 </svg>
-                                                            </a>
+                                                            </button>
+                                                            <div x-show="openEditPopup" x-cloak
+                                                                 x-transition:enter="transition ease-out duration-100"
+                                                                 x-transition:enter-start="transform opacity-0 scale-95"
+                                                                 x-transition:enter-end="transform opacity-100 scale-100"
+                                                                 x-transition:leave="transition ease-in duration-75"
+                                                                 x-transition:leave-start="transform opacity-100 scale-100"
+                                                                 x-transition:leave-end="transform opacity-0 scale-95"
+                                                                 @click.away="openEditPopup = false"
+                                                                 class="absolute right-[345px] z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                                 role="menu" aria-orientation="vertical"
+                                                                 aria-labelledby="menu-0-button" tabindex="-1">
+
+                                                                <a href="javascript:void(0)"
+                                                                   class="text-gray-700 block px-4 py-2 text-sm rounded-tl-md rounded-tr-md hover:bg-red-800 hover:text-white"
+                                                                   role="menuitem" tabindex="-1" id="menu-4-item-1">
+                                                                    Mark as Present                                                                </a>
+                                                                <a href="javascript:void(0)"
+                                                                   @click="openEditPopup = false"
+                                                                   class="text-gray-700 block px-4 py-2 text-sm rounded-bl-md rounded-br-md hover:bg-red-800 hover:text-white"
+                                                                   role="menuitem" tabindex="-1" id="menu-4-item-2">Cancel
+                                                                </a>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -636,16 +507,38 @@
                                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">
                                                             2023-00673
                                                         </td>
-                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-red-800">
-                                                            <a href=""
-                                                               class="flex flex-row gap-4 items-center text-red-800">
+                                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-red-800" x-data="{ openEditPopup: false }">
+                                                            <button @click="openEditPopup = true"
+                                                                    class="flex flex-row gap-4 items-center text-red-800">
                                                                 No Attendance
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                      viewBox="0 0 512 512" class="h-4"
                                                                      fill="currentColor">
                                                                     <path d="M454.6 45.3l12.1 12.1c12.5 12.5 12.5 32.8 0 45.3L440 129.4 382.6 72l26.7-26.7c12.5-12.5 32.8-12.5 45.3 0zM189 265.6l171-171L417.4 152l-171 171c-4.2 4.2-9.6 7.2-15.4 8.6l-65.6 15.1L180.5 281c1.3-5.8 4.3-11.2 8.6-15.4zm197.7-243L166.4 243c-8.5 8.5-14.4 19.2-17.1 30.9l-20.9 90.6c-1.2 5.4 .4 11 4.3 14.9s9.5 5.5 14.9 4.3l90.6-20.9c11.7-2.7 22.4-8.6 30.9-17.1L489.4 125.3c25-25 25-65.5 0-90.5L477.3 22.6c-25-25-65.5-25-90.5 0zM80 64C35.8 64 0 99.8 0 144V432c0 44.2 35.8 80 80 80H368c44.2 0 80-35.8 80-80V304c0-8.8-7.2-16-16-16s-16 7.2-16 16V432c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48H208c8.8 0 16-7.2 16-16s-7.2-16-16-16H80z"/>
                                                                 </svg>
-                                                            </a>
+                                                            </button>
+                                                            <div x-show="openEditPopup" x-cloak
+                                                                 x-transition:enter="transition ease-out duration-100"
+                                                                 x-transition:enter-start="transform opacity-0 scale-95"
+                                                                 x-transition:enter-end="transform opacity-100 scale-100"
+                                                                 x-transition:leave="transition ease-in duration-75"
+                                                                 x-transition:leave-start="transform opacity-100 scale-100"
+                                                                 x-transition:leave-end="transform opacity-0 scale-95"
+                                                                 @click.away="openEditPopup = false"
+                                                                 class="absolute right-[345px] z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                                 role="menu" aria-orientation="vertical"
+                                                                 aria-labelledby="menu-0-button" tabindex="-1">
+
+                                                                <a href="javascript:void(0)"
+                                                                   class="text-gray-700 block px-4 py-2 text-sm rounded-tl-md rounded-tr-md hover:bg-red-800 hover:text-white"
+                                                                   role="menuitem" tabindex="-1" id="menu-4-item-1">
+                                                                    Mark as Present                                                                </a>
+                                                                <a href="javascript:void(0)"
+                                                                   @click="openEditPopup = false"
+                                                                   class="text-gray-700 block px-4 py-2 text-sm rounded-bl-md rounded-br-md hover:bg-red-800 hover:text-white"
+                                                                   role="menuitem" tabindex="-1" id="menu-4-item-2">Cancel
+                                                                </a>
+                                                            </div>
                                                         </td>
                                                     </tr>
 

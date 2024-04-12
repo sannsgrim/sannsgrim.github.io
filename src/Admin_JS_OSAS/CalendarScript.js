@@ -46,8 +46,8 @@ function app() {
 
         sortEvents: function() {
             this.events.sort(function(a, b) {
-                var dateA = new Date(a.event_date);
-                var dateB = new Date(b.event_date);
+                const dateA = new Date(a.event_date);
+                const dateB = new Date(b.event_date);
                 return dateA - dateB;
             });
         },
@@ -95,12 +95,12 @@ function app() {
 
         showEventModal(date) {
             this.event_date = new Date(this.year, this.month, date).toDateString();
-            var x = 0;
+            let x = 0;
             while (x <= this.events.length) {
                 if (this.events[x] && this.events[x].event_date === this.event_date) {
                     // open the modal
                     this.openEventModal = true;
-                    var i = 0;
+                    let i = 0;
                     while (i <= this.events.length) {
                         if (this.events[i] && this.events[i].event_date === this.event_date) {
                             this.event_title = this.events[i].event_title;
@@ -160,38 +160,12 @@ function app() {
 
 
         getNoOfDays() {
-            let daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+            const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+            const dayOfWeek = new Date(this.year, this.month).getDay();
 
-            // find where to start calendar day of week
-            let dayOfWeek = new Date(this.year, this.month).getDay();
-
-            let blankdaysArray = [];
-            for (let i = 1; i <= dayOfWeek; i++) {
-                blankdaysArray.push(i);
-            }
-
-            let daysArray = [];
-            for (let i = 1; i <= daysInMonth; i++) {
-                daysArray.push(i);
-            }
-
-            let eventCounts = [];
-            for (let i = 1; i <= daysInMonth; i++) {
-                let count = this.countEvent(i);
-                if (count === 1) {
-                    eventCounts.push(count);
-                }
-            }
-
-
-
-
-            this.blankdays = blankdaysArray;
-            this.no_of_days = daysArray;
-            this.no_of_eventMonth = eventCounts;
-
-
-
+            this.blankdays = Array.from({length: dayOfWeek}, (_, i) => i + 1);
+            this.no_of_days = Array.from({length: daysInMonth}, (_, i) => i + 1);
+            this.no_of_eventMonth = this.no_of_days.map(day => this.countEvent(day) === 1 ? 1 : 0);
         },
 
         formatTime(time) {

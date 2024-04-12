@@ -624,15 +624,10 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <div x-show="no_of_eventMonth.length >= 1" class="text-center py-2">
-                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                View All
-                                            </button>
-                                        </div>
                                     </template>
 
                                 </ol>
-                                <div x-show="no_of_eventMonth.length === 0 || false" class="text-center py-6">
+                                <div x-show="no_of_eventMonth.every(day => day === 0)" class="text-center py-6">
                                     <p class="text-gray-500">No events are available.</p>
                                 </div>
                             </div>
